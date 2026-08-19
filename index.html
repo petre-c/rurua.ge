@@ -56,6 +56,14 @@
   "telephone": "+995591709931",
   "areaServed": "თბილისი",
   "availableLanguage": ["ka", "en"],
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://cal.com/rurua/30",
+      "actionPlatform": ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"]
+    }
+  },
   "hasMap": "https://www.google.com/maps/place/?cid=2737741856713212816",
   "sameAs": "https://www.notary.ge/geo-3718-sanotaro-biuroebi-notary-61",
   "address": {
@@ -82,6 +90,9 @@
     <path fill="currentColor" d="M12 2.6l2.87 5.82 6.43.94-4.65 4.53 1.1 6.4L12 17.27l-5.75 3.02 1.1-6.4L2.7 9.36l6.43-.94L12 2.6Z"/>
   <symbol id="icon-calc" viewBox="0 0 24 24">
     <path fill="currentColor" d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 2v4h12V4H6Zm0 6v2h2.5v-2H6Zm4.75 0v2h2.5v-2h-2.5ZM15.5 10v2H18v-2h-2.5ZM6 14v2h2.5v-2H6Zm4.75 0v2h2.5v-2h-2.5ZM15.5 14v6H18v-6h-2.5ZM6 18v2h2.5v-2H6Zm4.75 0v2h2.5v-2h-2.5Z"/>
+  </symbol>
+  <symbol id="icon-booking" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M7 2v2H5.5A2.5 2.5 0 0 0 3 6.5v13A2.5 2.5 0 0 0 5.5 22h13a2.5 2.5 0 0 0 2.5-2.5v-13A2.5 2.5 0 0 0 18.5 4H17V2h-2v2H9V2H7Zm-1.5 4H7v1h2V6h6v1h2V6h1.5a.5.5 0 0 1 .5.5V9H5V6.5a.5.5 0 0 1 .5-.5ZM5 11h14v8.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V11Zm2.5 2v2h2v-2h-2Zm4.5 0v2h2v-2h-2Zm4.5 0v2h2v-2h-2Zm-9 4v2h2v-2h-2Zm4.5 0v2h2v-2h-2Z"/>
   </symbol>
 </svg>
 
@@ -128,10 +139,15 @@
         <h1>ნოტარიუსი<br>თინათინ რურუა</h1>
         <p class="lede">
           ხელშეკრულებები, მინდობილობა, ანდერძი და მემკვიდრეობა, დოკუმენტების და
-          ხელმოწერის დამოწმება. ვიზიტის დროის შესათანხმებლად დაგვირეკეთ.
+          ხელმოწერის დამოწმება. ვიზიტი ონლაინ დაჯავშნეთ ან დაგვირეკეთ.
         </p>
         <div class="hero-btns">
-          <a class="btn btn-primary" href="tel:+995591709931">591 70 99 31</a>
+          <!-- ჯავშნა cal.com-ზე, მთავარი მოქმედება: კლიენტი დროს თავად ირჩევს -->
+          <a class="btn btn-primary btn-cal" href="https://cal.com/rurua/30" target="_blank" rel="noopener">
+            <svg class="ico" aria-hidden="true"><use href="#icon-booking"></use></svg>
+            ვიზიტის დაჯავშნა
+          </a>
+          <a class="btn btn-ghost" href="tel:+995591709931">591 70 99 31</a>
           <a class="btn btn-wa" href="https://wa.me/995591709931?text=%E1%83%92%E1%83%90%E1%83%9B%E1%83%90%E1%83%A0%E1%83%AF%E1%83%9D%E1%83%91%E1%83%90%21%20%E1%83%92%E1%83%AC%E1%83%94%E1%83%A0%E1%83%97%20%E1%83%A1%E1%83%90%E1%83%98%E1%83%A2%E1%83%98%E1%83%93%E1%83%90%E1%83%9C%20rurua.ge.%20%E1%83%9B%E1%83%90%E1%83%98%E1%83%9C%E1%83%A2%E1%83%94%E1%83%A0%E1%83%94%E1%83%A1%E1%83%94%E1%83%91%E1%83%A1%20%E1%83%A1%E1%83%90%E1%83%9C%E1%83%9D%E1%83%A2%E1%83%90%E1%83%A0%E1%83%9D%20%E1%83%9B%E1%83%9D%E1%83%9B%E1%83%A1%E1%83%90%E1%83%AE%E1%83%A3%E1%83%A0%E1%83%94%E1%83%91%E1%83%90%3A%20" target="_blank" rel="noopener">
             <svg class="ico" aria-hidden="true"><use href="#icon-wa"></use></svg>
             WhatsApp
@@ -250,8 +266,13 @@
       <div class="card">
         <h2>ვიზიტის შეთანხმება</h2>
         <p>
-          მისვლამდე დაგვირეკეთ, რომ დროზე შევთანხმდეთ და საჭირო დოკუმენტების სია დაზუსტდეს.
+          აირჩიეთ თავისუფალი დრო კალენდარში, ან დაგვირეკეთ და ტელეფონით შევთანხმდებით.
+          ორივე შემთხვევაში წინასწარ დაზუსტდება, რა დოკუმენტები დაგჭირდებათ.
         </p>
+        <p><a class="btn btn-primary btn-cal btn-sm" href="https://cal.com/rurua/30" target="_blank" rel="noopener">
+          <svg class="ico" aria-hidden="true"><use href="#icon-booking"></use></svg>
+          ვიზიტის დაჯავშნა
+        </a></p>
         <p class="addr">
           <a href="tel:+995591709931">591 70 99 31</a>
         </p>
