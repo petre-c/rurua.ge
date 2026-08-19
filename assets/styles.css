@@ -384,6 +384,40 @@ a:hover { text-decoration: underline; }
 .contact-grid p { margin: 0; }
 .contact-grid .card p:not(.addr) { color: var(--muted); font-size: .96rem; }
 
+/* ---------- გადახდა ---------- */
+
+.pay-amount { display: grid; gap: 5px; max-width: 220px; margin-bottom: 22px; }
+.pay-amount span { color: var(--muted); font-size: .88rem; }
+.pay-amount input {
+  padding: 10px 12px;
+  font: inherit; font-variant-numeric: tabular-nums;
+  color: var(--text); background: var(--surface);
+  border: 1px solid var(--border); border-radius: 9px;
+}
+
+.pay-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 16px;
+}
+.pay-grid > * { min-width: 0; }
+
+.pay-card h3 { color: var(--muted); font-family: var(--sans); font-weight: 500; font-size: .9rem; }
+
+/* ანგარიშის ნომერი: მონოსფეისი და თანაბარი ციფრები, რომ წაკითხვა და შედარება გაადვილდეს */
+.pay-iban {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 1.02rem;
+  letter-spacing: .02em;
+  word-break: break-all;
+  margin: 0 0 16px;
+}
+
+.pay-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
+.pay-hint, .pay-note { color: var(--muted); font-size: .88rem; }
+.pay-hint { margin: 14px 0 0; }
+.pay-note { margin: 22px 0 0; max-width: 60ch; }
+
 /* ---------- კალკულატორი ---------- */
 
 .calc-top-cta { margin-top: 28px; }
