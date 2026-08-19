@@ -94,6 +94,70 @@
   <section id="calc" class="section section-alt">
     <div class="wrap calc-list">
 
+      <!--
+        ყველა მოქმედება, დადგენილების სრული სიით. ველები არჩეულ მოქმედებაზეა მიბმული:
+        რაც არ სჭირდება, არ ჩანს. სიას fees.js აწყობს, იმავე განაკვეთებით, რომლებსაც
+        ქვემოთა დეტალური კალკულატორები იყენებენ.
+      -->
+      <div class="card calc calc-pick" data-picker>
+        <h2>ყველა მოქმედება, დადგენილება №507</h2>
+
+        <div class="calc-fields">
+          <label>
+            <span>სანოტარო მოქმედება</span>
+            <select data-picker-select aria-label="სანოტარო მოქმედება"></select>
+          </label>
+          <label data-needs="value" hidden>
+            <span>გარიგების ღირებულება, ლარი</span>
+            <input type="number" min="0" step="0.01" value="10000" data-in="value">
+          </label>
+          <label data-needs="pages" hidden>
+            <span>დოკუმენტის გვერდები</span>
+            <input type="number" min="1" step="1" value="1" data-in="pages">
+          </label>
+          <label data-needs="signs" hidden>
+            <span>ხელმოწერების რაოდენობა</span>
+            <input type="number" min="1" step="1" value="1" data-in="signs">
+          </label>
+          <label data-needs="months" hidden>
+            <span>დეპოზიტის ვადა, თვეები</span>
+            <input type="number" min="1" step="1" value="1" data-in="months">
+          </label>
+          <label data-needs="agreedSum" hidden>
+            <span>შეთანხმებული თანხა, ლარი</span>
+            <input type="number" min="0" step="1" value="0" data-in="agreedSum">
+          </label>
+          <label data-needs="outsideSum" hidden>
+            <span>ბიუროს გარეთ, შეთანხმებული დანამატი</span>
+            <input type="number" min="0" max="35" step="1" value="35" data-in="outsideSum">
+          </label>
+        </div>
+
+        <!--
+          შემცირებული განაკვეთი ნოტარიუსის ფასდაკლება არ არის: თავად დადგენილება ადგენს
+          ამ ორ კატეგორიაზე ნაკლებ თანხას.
+        -->
+        <label class="calc-vat" data-needs="conc" hidden>
+          <input type="checkbox" data-in="conc">
+          სოციალურად დაუცველი, სარეიტინგო ქულით 65 000-მდე, ან ომისა და თავდაცვის ძალების ვეტერანი
+        </label>
+        <label class="calc-vat"><input type="checkbox" data-in="outside"> ბიუროს გარეთ შესრულება, მუხლი 34.2</label>
+        <label class="calc-vat"><input type="checkbox" checked data-in="registry"> რეესტრის საფასური, 5 ლარი</label>
+        <label class="calc-vat"><input type="checkbox" checked data-in="vat"> დღგ 18%</label>
+
+        <table class="calc-out">
+          <tbody>
+            <tr><th scope="row">ნოტარიუსის საზღაური</th><td><output data-out="fee"></output></td></tr>
+            <tr data-row="extra" hidden><th scope="row">ბიუროს გარეთ</th><td><output data-out="extra"></output></td></tr>
+            <tr data-row="registry"><th scope="row">რეესტრის საფასური</th><td><output data-out="registry"></output></td></tr>
+            <tr data-row="vat"><th scope="row">დღგ</th><td><output data-out="vat"></output></td></tr>
+            <tr class="calc-total"><th scope="row">სულ</th><td><output data-out="total"></output></td></tr>
+          </tbody>
+        </table>
+
+        <p class="calc-pick-note" data-picker-note></p>
+      </div>
+
       <!-- ხელმოწერის ნამდვილობის დამოწმება -->
       <div class="card calc" data-calc="signature">
         <h2>ხელმოწერის ნამდვილობის დამოწმება</h2>
@@ -259,6 +323,149 @@
     </div>
   </section>
 
+
+  <!--
+    ცნობარი: დადგენილების ცხრილები სრულად, პლუს ორიგინალი დოკუმენტების ბმულები.
+    კალკულატორის შემდეგ დგება, რადგან ვინც თანხას ითვლის, პირველ ეკრანზე ველებს ხვდება.
+  -->
+  <section id="tsnobari" class="section">
+    <div class="wrap">
+      <h2 class="section-title">ცნობარი: დადგენილების განაკვეთები</h2>
+      <p class="section-sub">
+        საზღაურის ოდენობას საქართველოს მთავრობის 2011 წლის 29 დეკემბრის №507 დადგენილება ადგენს.
+        ქვემოთ მისი ცხრილებია, 2022 წლის 30 მაისის №272 ცვლილებით.
+      </p>
+
+      <h3 class="tariff-h3">მყარი განაკვეთები, მუხლი 31</h3>
+      <div class="tariff-wrap">
+        <table class="tariff-table">
+          <thead><tr><th>მოქმედება</th><th>საზღაური</th></tr></thead>
+          <tbody>
+            <tr><td>ანდერძის დადასტურება</td><td class="num">16 ლარი<span class="tariff-note">სოციალურად დაუცველი ან ვეტერანი: 10 ლარი</span></td></tr>
+            <tr><td>ანდერძის გახსნის შესახებ ოქმის შედგენა</td><td class="num">10 ლარი</td></tr>
+            <tr><td>ხელმოწერის ნამდვილობის დამოწმება</td><td class="num">თითოეულ ხელმოწერაზე: 1 გვერდი 6, 2-10 გვერდი 4, 11-50 გვერდი 3, 51 და მეტი 2 ლარი<span class="tariff-note">გვერდების რაოდენობა განაკვეთს ირჩევს, თანხას არ ამრავლებს</span></td></tr>
+            <tr><td>დოკუმენტის თარგმანზე დიპლომირებული მთარგმნელის ხელმოწერის დამოწმება</td><td class="num">იგივე განაკვეთები, თითოეულ ხელმოწერაზე</td></tr>
+            <tr><td>დოკუმენტის ასლისა და ამონაწერის სისწორის დამოწმება</td><td class="num">1 გვერდი 4 ლარი; 2-10 გვერდი 2 ლარი გვერდზე; 11-50 გვერდი 1 ლარი; 51 და მეტი 0,5 ლარი<span class="tariff-note">სოციალურად დაუცველი ან ვეტერანი: 0,5 ლარი გვერდზე</span></td></tr>
+            <tr><td>ბიუროში დაცული დოკუმენტის ასლის გაცემა, რეესტრიდან ამონაწერის დამოწმება</td><td class="num">5 ლარი<span class="tariff-note">სოციალურად დაუცველი ან ვეტერანი: 3 ლარი</span></td></tr>
+            <tr><td>ფიზიკური პირის მინდობილობა ან რწმუნებულება</td><td class="num">18 ლარი<span class="tariff-note">სოციალურად დაუცველი ან ვეტერანი: 10 ლარი</span></td></tr>
+            <tr><td>იურიდიული პირის, ასევე ინდივიდუალური მეწარმის მინდობილობა</td><td class="num">30 ლარი</td></tr>
+            <tr><td>მამკვიდრებლის კრედიტორის განცხადების მიღება</td><td class="num">10 ლარი</td></tr>
+            <tr><td>საზღვაო პროტესტის შესრულება</td><td class="num">300 ლარი</td></tr>
+            <tr><td>ცოცხლად ყოფნის, ადგილას ყოფნის, დოკუმენტის წარდგენის დროის ან ფოტოსურათზე იგივეობის ფაქტის დადასტურება</td><td class="num">4 ლარი<span class="tariff-note">სოციალურად დაუცველ პირზე ან ვეტერანზე ნახევრდება: 2 ლარი</span></td></tr>
+            <tr><td>განცხადების გადაცემა სხვა ფიზიკურ ან იურიდიულ პირს</td><td class="num">10 ლარი</td></tr>
+            <tr><td>განცხადების პროექტის შედგენა</td><td class="num">10 ლარი</td></tr>
+            <tr><td>გადაცემის ან გადაცემის შეუძლებლობის შესახებ მოწმობის გაცემა</td><td class="num">10 ლარი</td></tr>
+            <tr><td>სააღსრულებო ფურცლის გაცემა</td><td class="num">140 ლარი</td></tr>
+            <tr><td>სააღსრულებო ფურცლის ცვლილება, გაუქმება, დუბლიკატი</td><td class="num">50 ლარი</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="tariff-h3">გარიგების ღირებულების სკალა, მუხლი 23</h3>
+      <div class="tariff-wrap">
+        <table class="tariff-table">
+          <thead><tr><th>გარიგების ღირებულება</th><th>საზღაური</th></tr></thead>
+          <tbody>
+            <tr><td>500 ლარის ჩათვლით</td><td class="num">ღირებულების 3%</td></tr>
+            <tr><td>501-დან 1 000 ლარამდე</td><td class="num">15 ლარი + 500-ის ზევით თანხის 2,5%</td></tr>
+            <tr><td>1 001-დან 2 000 ლარამდე</td><td class="num">27,5 ლარი + 1 000-ის ზევით თანხის 1,5%</td></tr>
+            <tr><td>2 001-დან 3 000 ლარამდე</td><td class="num">42,5 ლარი + 2 000-ის ზევით თანხის 1%</td></tr>
+            <tr><td>3 001-დან 5 000 ლარამდე</td><td class="num">52,5 ლარი + 3 000-ის ზევით თანხის 0,5%</td></tr>
+            <tr><td>5 001-დან 20 000 ლარამდე</td><td class="num">62,5 ლარი + 5 000-ის ზევით თანხის 0,4%</td></tr>
+            <tr><td>20 001-დან 100 000 ლარამდე</td><td class="num">122,5 ლარი + 20 000-ის ზევით თანხის 0,3%</td></tr>
+            <tr><td>100 001-დან 500 000 ლარამდე</td><td class="num">362,5 ლარი + 100 000-ის ზევით თანხის 0,2%</td></tr>
+            <tr><td>500 001-დან 1 000 000 ლარამდე</td><td class="num">1 162,5 ლარი + 500 000-ის ზევით თანხის 0,1%</td></tr>
+            <tr><td>1 000 000 ლარის ზევით</td><td class="num">1 662,5 ლარი + 1 000 000-ის ზევით თანხის 0,05%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tariff-after">ცალმხრივ გარიგებაზე ამ განაკვეთის ნახევარი ირიცხება, მუხლი 23.2. საზღაური 10 000 ლარს ვერ გადააჭარბებს, მუხლი 23.3.</p>
+
+      <h3 class="tariff-h3">სკალის წილი სხვა მოქმედებებზე</h3>
+      <div class="tariff-wrap">
+        <table class="tariff-table">
+          <thead><tr><th class="art">მუხლი</th><th>მოქმედება</th><th>წილი</th></tr></thead>
+          <tbody>
+            <tr><td class="art">24</td><td>ქონების გაყოფა ან სარგებლობის წესის დადგენა</td><td class="num">ნახევარი</td></tr>
+            <tr><td class="art">29.1</td><td>საკუთრების უფლების მოწმობა, სამკვიდრო მოწმობა, სამკვიდრო ქონების აღწერა</td><td class="num">ნახევარი</td></tr>
+            <tr><td class="art">30</td><td>გარიგების პროექტი, რომელსაც დამოწმება არ მოჰყვება</td><td class="num">ნახევარი</td></tr>
+            <tr><td class="art">29.2 ა</td><td>ფულის ან ფასიანი ქაღალდების დეპოზიტზე მიღება</td><td class="num">მეოთხედი, თვეში არანაკლებ 4 ლარი</td></tr>
+            <tr><td class="art">29.2 ბ</td><td>გირავნობის რიგითობის შეცვლა</td><td class="num">მეოთხედი, არანაკლებ 5 ლარი</td></tr>
+            <tr><td class="art">29.2 გ</td><td>საჯარო რეესტრში ცვლილების განცხადების დამოწმება</td><td class="num">მეოთხედი, არანაკლებ 4 ლარი</td></tr>
+            <tr><td class="art">18.2</td><td>სამკვიდრო მოწმობა რამდენიმე მემკვიდრეზე</td><td class="num">თითოეული მემკვიდრის წილის პროპორციულად</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="tariff-h3">იპოთეკა სესხის ხელშეკრულებაზე, მუხლი 23<sup>1</sup></h3>
+      <div class="tariff-wrap">
+        <table class="tariff-table">
+          <thead><tr><th>გარიგების ღირებულება</th><th>საზღაური</th></tr></thead>
+          <tbody>
+            <tr><td>1 000-დან 5 000 ლარამდე</td><td class="num">50 ლარი</td></tr>
+            <tr><td>5 001-დან 20 000 ლარამდე</td><td class="num">100 ლარი</td></tr>
+            <tr><td>20 001-დან 50 000 ლარამდე</td><td class="num">150 ლარი</td></tr>
+            <tr><td>50 001-დან 100 000 ლარამდე</td><td class="num">200 ლარი</td></tr>
+            <tr><td>100 000 ლარზე მეტი</td><td class="num">500 ლარი</td></tr>
+            <tr><td>სამეწარმეო იურიდიული პირის სესხი, 1 000 001-დან 20 000 000 ლარამდე</td><td class="num">1 000 ლარი</td></tr>
+            <tr><td>სამეწარმეო იურიდიული პირის სესხი, 20 000 000 ლარზე მეტი</td><td class="num">10 000 ლარი</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tariff-after">ამიტომ ითვლება, რომ იპოთეკის დამოწმებაზე ფიზიკურ პირს 500 ლარზე მეტი არ ერიცხება. ეს ზღვარი ამ მუხლიდან მოდის, არა 23-ე მუხლის სკალიდან.</p>
+
+      <h3 class="tariff-h3">დანარჩენი ფიქსირებული საზღაური</h3>
+      <div class="tariff-wrap">
+        <table class="tariff-table">
+          <thead><tr><th class="art">მუხლი</th><th>მოქმედება</th><th>საზღაური</th></tr></thead>
+          <tbody>
+            <tr><td class="art">8.4</td><td>გარიგებაში ცვლილება, რომელიც ღირებულებას ან პირებს არ ეხება</td><td class="num">25 ლარი</td></tr>
+            <tr><td class="art">15.2</td><td>თავდაპირველ გარიგებაში ვადის გაგრძელება</td><td class="num">გადახდილი საზღაურის 20%</td></tr>
+            <tr><td class="art">17.2</td><td>საქორწინო ხელშეკრულება</td><td class="num">ქონების ფასით, არანაკლებ 60 ლარი</td></tr>
+            <tr><td class="art">18.6</td><td>სამკვიდროს მმართველის მოწმობა, სამკვიდრო მოწმობის ცვლილება ან გაუქმება</td><td class="num">18 ლარი</td></tr>
+            <tr><td class="art">20</td><td>არასამეწარმეო იურიდიული პირის ან პარტიის სადამფუძნებლო დოკუმენტები</td><td class="num">50 ლარი</td></tr>
+            <tr><td class="art">22</td><td>ბინათმესაკუთრეთა ამხანაგობის კრების ოქმი, კრების ჩაშლის მოწმობა</td><td class="num">100 ლარი, 50 ლარი</td></tr>
+            <tr><td class="art">25</td><td>სანივთო უფლების შეძენა, წინასწარი დაპირება</td><td class="num">10 ლარი</td></tr>
+            <tr><td class="art">26</td><td>სახელმწიფო ქონების პრივატიზება, ბინის პრივატიზაცია</td><td class="num">ფასის 0,2%, არაუმეტეს 200 ლარისა; ბინაზე 1 ლარი</td></tr>
+            <tr><td class="art">27</td><td>სახელმწიფოს მიერ თვითმმართველ ერთეულს ქონების გადაცემა</td><td class="num">1 ლარი</td></tr>
+            <tr><td class="art">28.1</td><td>ორმხრივი ან მრავალმხრივი გარიგების გაუქმება</td><td class="num">15 ლარი</td></tr>
+            <tr><td class="art">32</td><td>პირდაპირი ელექტრონული კომუნიკაციით განცხადება ან მინდობილობა</td><td class="num">60 ლარი ფიზიკური პირით, 90 ლარი იურიდიული პირით</td></tr>
+            <tr><td class="art">39</td><td>ელექტრონულ სანოტარო რეესტრში რეგისტრაცია, პალატის ანგარიშზე</td><td class="num">5 ლარი, დღგ-ის ჩათვლით<span class="tariff-note">ასლის დედანთან სისწორის დამოწმებას არ ერიცხება</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="tariff-h3">სად დგინდება საზღაური შეთანხმებით</h3>
+      <div class="tariff-wrap">
+        <table class="tariff-table">
+          <thead><tr><th class="art">მუხლი</th><th>მომსახურება</th><th>ზღვარი</th></tr></thead>
+          <tbody>
+            <tr><td class="art">19</td><td>სამეწარმეო იურიდიული პირის სადამფუძნებლო დოკუმენტები, რეორგანიზაცია, წილის გასხვისება</td><td class="num">1 000 ლარი</td></tr>
+            <tr><td class="art">21</td><td>მართვის ორგანოს კრების ოქმის შედგენა</td><td class="num">500 ლარი</td></tr>
+            <tr><td class="art">33</td><td>სამართლებრივი კონსულტაცია, რომელიც სანოტარო მოქმედებას არ უკავშირდება</td><td class="num">ზღვარი დადგენილი არ არის</td></tr>
+            <tr><td class="art">34.1</td><td>ფოსტის, ტრანსპორტის, დოკუმენტების გამოთხოვის და რეგისტრაციის ხარჯები</td><td class="num">ფაქტობრივი ხარჯი, წინასწარი შეთანხმებით</td></tr>
+            <tr><td class="art">34.2</td><td>ბიუროს გარეთ შესრულება</td><td class="num">35 ლარი</td></tr>
+            <tr><td class="art">35</td><td>ასლის დამზადება</td><td class="num">გადაღების საბაზრო ფასი</td></tr>
+            <tr><td class="art">—</td><td>სანოტარო მედიაცია</td><td class="num">ტარიფი დადგენილი არ არის</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tariff-after">
+        მუხლი 3: სადაც კანონი სანოტარო ფორმას სავალდებულოდ ითხოვს, საზღაური მხოლოდ ამ
+        დადგენილებით დგინდება. სადაც სავალდებულო არ არის, და ნოტარიუსის სხვა მომსახურებაზე,
+        საზღაური შეიძლება შეთანხმებით განისაზღვროს. ოდენობის დადგენისას მხედველობაში მიიღება
+        მოქმედების სირთულე, გაწეული კონსულტაცია, ტექნიკური სამუშაო და დახარჯული დრო.
+      </p>
+
+      <h3 class="tariff-h3">ორიგინალი დოკუმენტები</h3>
+      <ul class="docs-list">
+        <li><a href="https://notary.ge/res/docs/sakanonmdeblo/axali_aktebi/dadgenileba.pdf" target="_blank" rel="noopener">დადგენილება №507, სრული ტექსტი, PDF</a>, ნოტარიუსთა პალატის საიტიდან</li>
+        <li><a href="https://matsne.gov.ge/ka/document/view/1549252" target="_blank" rel="noopener">იგივე დადგენილება matsne.gov.ge-ზე</a>, ცვლილებების ისტორიით</li>
+        <li><a href="https://www.notary.ge/geo-6439-sanotaro-momsaxurebis-sazgauri" target="_blank" rel="noopener">სანოტარო მომსახურების საზღაური</a>, პალატის შემოკლებული ცხრილი</li>
+        <li><a href="https://www.notary.ge/index.php?id=1376&amp;lang=geo" target="_blank" rel="noopener">არქივის მომსახურების საფასური</a>: დამოწმებული ასლი 15 ლარი ოთხ სამუშაო დღეში, 25 ერთ დღეში, 35 იმავე დღეს. ეს თანხა პალატის ანგარიშზე მიდის, არა ნოტარიუსთან</li>
+      </ul>
+    </div>
+  </section>
   <!--
     განმარტებები კალკულატორის შემდეგ დგება: ვინც თანხას ითვლის, პირველ ეკრანზე
     ველებს ხვდება და არა ტექსტს.

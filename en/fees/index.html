@@ -94,6 +94,70 @@
   <section id="calc" class="section section-alt">
     <div class="wrap calc-list">
 
+      <!--
+        Every act in the decree, in one list. The fields follow the chosen act: whatever it
+        does not need stays hidden. fees.js builds the list from the same rate tables the
+        detailed calculators below use.
+      -->
+      <div class="card calc calc-pick" data-picker>
+        <h2>Every act in decree No. 507</h2>
+
+        <div class="calc-fields">
+          <label>
+            <span>Notarial act</span>
+            <select data-picker-select aria-label="Notarial act"></select>
+          </label>
+          <label data-needs="value" hidden>
+            <span>Transaction value, GEL</span>
+            <input type="number" min="0" step="0.01" value="10000" data-in="value">
+          </label>
+          <label data-needs="pages" hidden>
+            <span>Pages in the document</span>
+            <input type="number" min="1" step="1" value="1" data-in="pages">
+          </label>
+          <label data-needs="signs" hidden>
+            <span>Number of signatures</span>
+            <input type="number" min="1" step="1" value="1" data-in="signs">
+          </label>
+          <label data-needs="months" hidden>
+            <span>Deposit term, months</span>
+            <input type="number" min="1" step="1" value="1" data-in="months">
+          </label>
+          <label data-needs="agreedSum" hidden>
+            <span>Agreed amount, GEL</span>
+            <input type="number" min="0" step="1" value="0" data-in="agreedSum">
+          </label>
+          <label data-needs="outsideSum" hidden>
+            <span>Outside the bureau, agreed supplement</span>
+            <input type="number" min="0" max="35" step="1" value="35" data-in="outsideSum">
+          </label>
+        </div>
+
+        <!--
+          The reduced rate is not a discount from the notary: the decree itself sets a lower
+          amount for these two categories.
+        -->
+        <label class="calc-vat" data-needs="conc" hidden>
+          <input type="checkbox" data-in="conc">
+          Registered as socially vulnerable with a rating score up to 65,000, or a war and defence forces veteran
+        </label>
+        <label class="calc-vat"><input type="checkbox" data-in="outside"> Performed outside the bureau, article 34(2)</label>
+        <label class="calc-vat"><input type="checkbox" checked data-in="registry"> Registry fee, 5 GEL</label>
+        <label class="calc-vat"><input type="checkbox" checked data-in="vat"> VAT 18%</label>
+
+        <table class="calc-out">
+          <tbody>
+            <tr><th scope="row">Notary fee</th><td><output data-out="fee"></output></td></tr>
+            <tr data-row="extra" hidden><th scope="row">Outside the bureau</th><td><output data-out="extra"></output></td></tr>
+            <tr data-row="registry"><th scope="row">Registry fee</th><td><output data-out="registry"></output></td></tr>
+            <tr data-row="vat"><th scope="row">VAT</th><td><output data-out="vat"></output></td></tr>
+            <tr class="calc-total"><th scope="row">Total</th><td><output data-out="total"></output></td></tr>
+          </tbody>
+        </table>
+
+        <p class="calc-pick-note" data-picker-note></p>
+      </div>
+
       <!-- Certifying a signature -->
       <div class="card calc" data-calc="signature">
         <h2>Certifying a signature</h2>
@@ -263,6 +327,151 @@
     The explanations come after the calculators: someone working out a fee meets the
     fields first, not paragraphs.
   -->
+
+  <!--
+    Reference: the decree's own tables, plus links to the original documents.
+    It sits after the calculator so that anyone pricing an act meets the fields first.
+  -->
+  <section id="reference" class="section">
+    <div class="wrap">
+      <h2 class="section-title">Reference: the rates in the decree</h2>
+      <p class="section-sub">
+        Fees are set by decree No. 507 of the Government of Georgia, 29 December 2011, as amended
+        on 30 May 2022 by decree No. 272. The Georgian text is the authoritative one; this page is
+        a translation for convenience.
+      </p>
+
+      <h3 class="tariff-h3">Fixed rates, article 31</h3>
+      <div class="tariff-wrap">
+        <table class="tariff-table">
+          <thead><tr><th>Act</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr><td>Certifying a will</td><td class="num">16 GEL<span class="tariff-note">Socially vulnerable or veteran: 10 GEL</span></td></tr>
+            <tr><td>Record of opening a will</td><td class="num">10 GEL</td></tr>
+            <tr><td>Certifying the authenticity of a signature</td><td class="num">Per signature: 1 page 6, 2-10 pages 4, 11-50 pages 3, 51 and more 2 GEL<span class="tariff-note">The page count selects the rate, it does not multiply the fee</span></td></tr>
+            <tr><td>Certifying the signature of a certified translator</td><td class="num">The same rates, per signature</td></tr>
+            <tr><td>Certifying a copy or an extract</td><td class="num">1 page 4 GEL; 2-10 pages 2 GEL per page; 11-50 pages 1 GEL; 51 and more 0.5 GEL<span class="tariff-note">Socially vulnerable or veteran: 0.5 GEL per page</span></td></tr>
+            <tr><td>Issuing a copy held by the bureau, or an extract from the registry</td><td class="num">5 GEL<span class="tariff-note">Socially vulnerable or veteran: 3 GEL</span></td></tr>
+            <tr><td>Power of attorney by a natural person</td><td class="num">18 GEL<span class="tariff-note">Socially vulnerable or veteran: 10 GEL</span></td></tr>
+            <tr><td>Power of attorney by a legal person or a sole trader</td><td class="num">30 GEL</td></tr>
+            <tr><td>Accepting a creditor's claim against an estate</td><td class="num">10 GEL</td></tr>
+            <tr><td>Maritime protest</td><td class="num">300 GEL</td></tr>
+            <tr><td>Certifying a fact: being alive, presence at a place, time a document was presented, identity in a photograph</td><td class="num">4 GEL<span class="tariff-note">Halved for a socially vulnerable person or a veteran: 2 GEL</span></td></tr>
+            <tr><td>Passing a statement to another person</td><td class="num">10 GEL</td></tr>
+            <tr><td>Drafting a statement</td><td class="num">10 GEL</td></tr>
+            <tr><td>Certificate of delivery, or that delivery was impossible</td><td class="num">10 GEL</td></tr>
+            <tr><td>Issuing a writ of execution</td><td class="num">140 GEL</td></tr>
+            <tr><td>Changing, cancelling or duplicating a writ of execution</td><td class="num">50 GEL</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="tariff-h3">Scale on transaction value, article 23</h3>
+      <div class="tariff-wrap">
+        <table class="tariff-table">
+          <thead><tr><th>Transaction value</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr><td>Up to 500 GEL</td><td class="num">3% of the value</td></tr>
+            <tr><td>501 to 1,000 GEL</td><td class="num">15 GEL + 2.5% above 500</td></tr>
+            <tr><td>1,001 to 2,000 GEL</td><td class="num">27.5 GEL + 1.5% above 1,000</td></tr>
+            <tr><td>2,001 to 3,000 GEL</td><td class="num">42.5 GEL + 1% above 2,000</td></tr>
+            <tr><td>3,001 to 5,000 GEL</td><td class="num">52.5 GEL + 0.5% above 3,000</td></tr>
+            <tr><td>5,001 to 20,000 GEL</td><td class="num">62.5 GEL + 0.4% above 5,000</td></tr>
+            <tr><td>20,001 to 100,000 GEL</td><td class="num">122.5 GEL + 0.3% above 20,000</td></tr>
+            <tr><td>100,001 to 500,000 GEL</td><td class="num">362.5 GEL + 0.2% above 100,000</td></tr>
+            <tr><td>500,001 to 1,000,000 GEL</td><td class="num">1,162.5 GEL + 0.1% above 500,000</td></tr>
+            <tr><td>Above 1,000,000 GEL</td><td class="num">1,662.5 GEL + 0.05% above 1,000,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tariff-after">A unilateral transaction pays half of this rate, article 23(2). The fee cannot exceed 10,000 GEL, article 23(3).</p>
+
+      <h3 class="tariff-h3">What share of the scale other acts pay</h3>
+      <div class="tariff-wrap">
+        <table class="tariff-table">
+          <thead><tr><th class="art">Article</th><th>Act</th><th>Share</th></tr></thead>
+          <tbody>
+            <tr><td class="art">24</td><td>Dividing property, or setting terms for its use</td><td class="num">Half</td></tr>
+            <tr><td class="art">29(1)</td><td>Certificate of ownership, inheritance certificate, inventory of an estate</td><td class="num">Half</td></tr>
+            <tr><td class="art">30</td><td>Drafting a transaction that is not then certified</td><td class="num">Half</td></tr>
+            <tr><td class="art">29(2)(a)</td><td>Taking money or securities on deposit</td><td class="num">A quarter, at least 4 GEL a month</td></tr>
+            <tr><td class="art">29(2)(b)</td><td>Changing the priority order of a pledge</td><td class="num">A quarter, at least 5 GEL</td></tr>
+            <tr><td class="art">29(2)(c)</td><td>Certifying an application to change the public registry</td><td class="num">A quarter, at least 4 GEL</td></tr>
+            <tr><td class="art">18(2)</td><td>Inheritance certificate with several heirs</td><td class="num">In proportion to each heir's share</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="tariff-h3">Mortgage securing a loan, article 23<sup>1</sup></h3>
+      <div class="tariff-wrap">
+        <table class="tariff-table">
+          <thead><tr><th>Transaction value</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr><td>1,000 to 5,000 GEL</td><td class="num">50 GEL</td></tr>
+            <tr><td>5,001 to 20,000 GEL</td><td class="num">100 GEL</td></tr>
+            <tr><td>20,001 to 50,000 GEL</td><td class="num">150 GEL</td></tr>
+            <tr><td>50,001 to 100,000 GEL</td><td class="num">200 GEL</td></tr>
+            <tr><td>Above 100,000 GEL</td><td class="num">500 GEL</td></tr>
+            <tr><td>Company loan, 1,000,001 to 20,000,000 GEL</td><td class="num">1,000 GEL</td></tr>
+            <tr><td>Company loan, above 20,000,000 GEL</td><td class="num">10,000 GEL</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tariff-after">This is why a natural person pays no more than 500 GEL to have a mortgage certified. The ceiling comes from this article, not from the article 23 scale.</p>
+
+      <h3 class="tariff-h3">Other fixed fees</h3>
+      <div class="tariff-wrap">
+        <table class="tariff-table">
+          <thead><tr><th class="art">Article</th><th>Act</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr><td class="art">8(4)</td><td>Amending a transaction without touching its value or the parties</td><td class="num">25 GEL</td></tr>
+            <tr><td class="art">15(2)</td><td>Extending the term of the original transaction</td><td class="num">20% of the fee paid</td></tr>
+            <tr><td class="art">17(2)</td><td>Marriage contract</td><td class="num">On the value of the property, at least 60 GEL</td></tr>
+            <tr><td class="art">18(6)</td><td>Estate administrator certificate, change or cancellation of an inheritance certificate</td><td class="num">18 GEL</td></tr>
+            <tr><td class="art">20</td><td>Founding documents of a non-commercial legal person or a political party</td><td class="num">50 GEL</td></tr>
+            <tr><td class="art">22</td><td>Minutes of a homeowners association meeting, certificate that a meeting failed</td><td class="num">100 GEL, 50 GEL</td></tr>
+            <tr><td class="art">25</td><td>Acquiring a right in rem, advance promise</td><td class="num">10 GEL</td></tr>
+            <tr><td class="art">26</td><td>Privatisation of state property, privatisation of a flat</td><td class="num">0.2% of the price, up to 200 GEL; 1 GEL for a flat</td></tr>
+            <tr><td class="art">27</td><td>State transferring core property to a local self-governing unit</td><td class="num">1 GEL</td></tr>
+            <tr><td class="art">28(1)</td><td>Cancelling a bilateral or multilateral transaction</td><td class="num">15 GEL</td></tr>
+            <tr><td class="art">32</td><td>Statement or power of attorney by direct electronic communication</td><td class="num">60 GEL with a natural person, 90 GEL with a legal person</td></tr>
+            <tr><td class="art">39</td><td>Registration in the electronic notarial registry, paid to the Notary Chamber</td><td class="num">5 GEL, VAT included<span class="tariff-note">Not charged on registering a certified copy</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="tariff-h3">Where the fee is set by agreement</h3>
+      <div class="tariff-wrap">
+        <table class="tariff-table">
+          <thead><tr><th class="art">Article</th><th>Service</th><th>Ceiling</th></tr></thead>
+          <tbody>
+            <tr><td class="art">19</td><td>Company founding documents, reorganisation, transfer of a share</td><td class="num">1,000 GEL</td></tr>
+            <tr><td class="art">21</td><td>Minutes of a management body meeting</td><td class="num">500 GEL</td></tr>
+            <tr><td class="art">33</td><td>Legal consultation unconnected to a notarial act</td><td class="num">No ceiling set</td></tr>
+            <tr><td class="art">34(1)</td><td>Post, transport, obtaining documents, registering a right</td><td class="num">Actual cost, agreed in advance</td></tr>
+            <tr><td class="art">34(2)</td><td>Performing an act outside the bureau</td><td class="num">35 GEL</td></tr>
+            <tr><td class="art">35</td><td>Producing a copy</td><td class="num">Market price of copying</td></tr>
+            <tr><td class="art">—</td><td>Notarial mediation</td><td class="num">No tariff set</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tariff-after">
+        Article 3: where the law requires notarial form, the fee can only be set by this decree.
+        Where notarial form is not required, and for the notary's other services, the fee may be
+        agreed. In setting it, the complexity of the act, the legal advice given, the technical
+        work done and the time spent are taken into account.
+      </p>
+
+      <h3 class="tariff-h3">Original documents</h3>
+      <ul class="docs-list">
+        <li><a href="https://notary.ge/res/docs/sakanonmdeblo/axali_aktebi/dadgenileba.pdf" target="_blank" rel="noopener">Decree No. 507, full text, PDF</a>, from the Notary Chamber</li>
+        <li><a href="https://matsne.gov.ge/ka/document/view/1549252" target="_blank" rel="noopener">The same decree on matsne.gov.ge</a>, with its amendment history</li>
+        <li><a href="https://www.notary.ge/eng-6439-sanotaro-momsaxurebis-sazgauri" target="_blank" rel="noopener">Notarial service fees</a>, the Chamber's short table</li>
+        <li><a href="https://www.notary.ge/index.php?id=1376&amp;lang=geo" target="_blank" rel="noopener">Archive service fees</a>: a certified copy is 15 GEL in four working days, 25 in one day, 35 on the day of application. That money goes to the Chamber, not to the notary</li>
+      </ul>
+    </div>
+  </section>
+
   <section class="section calc-info">
     <div class="wrap">
       <h2 class="section-title">Good to know</h2>

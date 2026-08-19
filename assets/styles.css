@@ -582,3 +582,79 @@ a:hover { text-decoration: underline; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* ---------------------------------------------------------------
+   საზღაურის გვერდი: სრული სიის ბლოკი და ცნობარის ცხრილები.
+   ფერები იმავე ცვლადებიდან მოდის, ამიტომ ორივე თემაზე მუშაობს.
+   --------------------------------------------------------------- */
+
+.calc select {
+  width: 100%;
+  padding: 9px 10px;
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+}
+
+/* არჩეულ მოქმედებაზე მიბმული შენიშვნა: ფიქსირებული ფასი თუ შეთანხმებით დადგენადი */
+.calc-pick-note {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--bg);
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.calc-pick-note[data-kind="agreed"] {
+  border-color: var(--star);
+  background: var(--star-soft);
+  color: var(--text);
+}
+
+.tariff-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.tariff-wrap + .tariff-h3 { margin-top: 30px; }
+
+.tariff-table { width: 100%; border-collapse: collapse; font-size: .94rem; }
+
+.tariff-table th,
+.tariff-table td {
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+  font-weight: 400;
+  border-bottom: 1px solid var(--border);
+}
+
+.tariff-table thead th {
+  background: var(--bg-alt);
+  color: var(--muted);
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  white-space: nowrap;
+}
+
+.tariff-table tbody tr:last-child td,
+.tariff-table tbody tr:last-child th { border-bottom: 0; }
+
+.tariff-table td.num { font-variant-numeric: tabular-nums; }
+.tariff-table td.art,
+.tariff-table th.art { white-space: nowrap; color: var(--accent); font-variant-numeric: tabular-nums; }
+.tariff-note { display: block; margin-top: 4px; color: var(--muted); font-size: .85rem; }
+
+.tariff-h3 { margin: 0 0 10px; font-size: 1rem; }
+.tariff-after { margin: 16px 0 0; color: var(--muted); font-size: .9rem; }
+
+.docs-list { margin: 12px 0 0; padding-left: 18px; display: grid; gap: 8px; }
+.docs-list li { color: var(--muted); }
+.docs-list a { overflow-wrap: anywhere; }

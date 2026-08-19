@@ -85,6 +85,7 @@
   </symbol>
   <symbol id="icon-star" viewBox="0 0 24 24">
     <path fill="currentColor" d="M12 2.6l2.87 5.82 6.43.94-4.65 4.53 1.1 6.4L12 17.27l-5.75 3.02 1.1-6.4L2.7 9.36l6.43-.94L12 2.6Z"/>
+  </symbol>
   <symbol id="icon-calc" viewBox="0 0 24 24">
     <path fill="currentColor" d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 2v4h12V4H6Zm0 6v2h2.5v-2H6Zm4.75 0v2h2.5v-2h-2.5ZM15.5 10v2H18v-2h-2.5ZM6 14v2h2.5v-2H6Zm4.75 0v2h2.5v-2h-2.5ZM15.5 14v6H18v-6h-2.5ZM6 18v2h2.5v-2H6Zm4.75 0v2h2.5v-2h-2.5Z"/>
   </symbol>
@@ -99,7 +100,7 @@
   </symbol>
 </svg>
 
-<a class="skip" href="#services">Skip to the list of services</a>
+<a class="skip" href="#visit">Skip to visit information</a>
 
 <header class="site-head">
   <div class="wrap head-inner">
@@ -112,7 +113,7 @@
     </a>
 
     <nav class="head-nav">
-      <a href="#services">Services</a>
+      <a href="fees/">Fees</a>
       <a href="#visit">Your visit</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -147,6 +148,11 @@
           <a class="btn btn-primary btn-cal" href="https://cal.com/rurua/30" target="_blank" rel="noopener">
             <svg class="ico" aria-hidden="true"><use href="#icon-booking"></use></svg>
             Book a visit
+          </a>
+          <!-- Standing Teams room: a time is agreed first, then the link is used -->
+          <a class="btn btn-ghost btn-video" href="https://teams.live.com/meet/9314861154325?p=OCizyPDEhzYcypQcMn" target="_blank" rel="noopener">
+            <svg class="ico" aria-hidden="true"><use href="#icon-video"></use></svg>
+            Meet on Teams
           </a>
           <a class="btn btn-ghost" href="tel:+995591709931">591 70 99 31</a>
           <a class="btn btn-wa" href="https://wa.me/995591709931?text=Hello%21%20I%20am%20writing%20from%20your%20website%20rurua.ge.%20I%20would%20like%20to%20ask%20about%20a%20notary%20service%3A%20" target="_blank" rel="noopener">
@@ -186,68 +192,6 @@
     </div>
   </section>
 
-  <section id="services" class="section">
-    <div class="wrap">
-      <h2 class="section-title">Notary services</h2>
-      <p class="section-sub">The main notarial acts carried out at the office.</p>
-
-      <ul class="grid">
-        <li class="card svc">
-          <h3>Contracts</h3>
-          <p>Sale, gift, exchange, lease, loan, mortgage and other transactions.</p>
-        </li>
-        <li class="card svc">
-          <h3>Real estate transactions</h3>
-          <p>Certification of property transactions and registration of ownership in the public registry.</p>
-        </li>
-        <li class="card svc">
-          <h3>Powers of attorney</h3>
-          <p>Drafting, certification and revocation of general and special powers of attorney.</p>
-        </li>
-        <li class="card svc">
-          <h3>Wills and inheritance</h3>
-          <p>Drafting and certification of wills, certificates of inheritance, acceptance and renunciation.</p>
-        </li>
-        <li class="card svc">
-          <h3>Signature certification</h3>
-          <p>Certifying signatures on applications, consents and other documents.</p>
-        </li>
-        <li class="card svc">
-          <h3>Certified copies</h3>
-          <p>Certifying that a copy or an extract matches the original document.</p>
-        </li>
-        <li class="card svc">
-          <h3>Translations</h3>
-          <p>Certifying a translation and the signature of the translator.</p>
-        </li>
-        <li class="card svc">
-          <h3>Parental consent</h3>
-          <p>Certifying a parent's consent for a minor to travel abroad.</p>
-        </li>
-        <li class="card svc">
-          <h3>Family law</h3>
-          <p>Prenuptial agreements, child support agreements, division of marital property.</p>
-        </li>
-        <li class="card svc">
-          <h3>Corporate documents</h3>
-          <p>Charters, minutes of shareholder meetings, share transfer agreements and other corporate papers.</p>
-        </li>
-        <li class="card svc">
-          <h3>Enforceable notarial act</h3>
-          <p>Enforcement of a monetary claim without going through court proceedings.</p>
-        </li>
-        <li class="card svc">
-          <h3>Deposits and attestation of facts</h3>
-          <p>Notarial deposit, attestation of legally relevant facts and of the submission of documents.</p>
-        </li>
-      </ul>
-
-      <p class="note">
-        If what you need is not on this list, call and ask. You will be told whether it can be
-        done here and which documents to bring.
-      </p>
-    </div>
-  </section>
 
   <section id="visit" class="section section-alt">
     <div class="wrap two-col">
@@ -274,18 +218,11 @@
         <p class="addr">
           <a href="tel:+995591709931">+995 591 70 99 31</a>
         </p>
-        <!--
-          Online meeting on Teams. The link is a standing meeting room, so the copy is
-          explicit that a time is agreed first and the link is used at that time.
-        -->
+        <!-- The Teams button sits at the top of the page, only the condition stays here -->
         <p class="visit-online">
-          If coming in person does not work, the meeting can be held online. Once a time is
-          agreed, join through this link:
+          If coming in person does not work, the meeting can be held online. A time is agreed
+          first, then you join through the Teams link at the top of the page.
         </p>
-        <p><a class="btn btn-ghost btn-sm btn-video" href="https://teams.live.com/meet/9314861154325?p=OCizyPDEhzYcypQcMn" target="_blank" rel="noopener">
-          <svg class="ico" aria-hidden="true"><use href="#icon-video"></use></svg>
-          Meet online on Teams
-        </a></p>
         <p class="muted-note">The office works in Georgian and English.</p>
       </div>
     </div>
