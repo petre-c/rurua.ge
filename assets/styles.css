@@ -313,6 +313,9 @@ a:hover { text-decoration: underline; }
 }
 .cta-calc:hover { text-decoration: none; background: var(--surface); box-shadow: var(--shadow); }
 
+/* ცალკე სექციაში ბლოკს ჰეროს ზედა შველი აღარ სჭირდება, სათაური და ლიდი უკვე ჰყოფს */
+.cta-calc-block { margin-top: 6px; }
+
 .cta-calc-ico { width: 30px; height: 30px; flex: 0 0 30px; color: var(--accent); }
 
 .cta-calc-text { display: flex; flex-direction: column; line-height: 1.35; margin-right: auto; }

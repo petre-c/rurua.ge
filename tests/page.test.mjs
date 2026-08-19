@@ -75,6 +75,45 @@ CATALOGUE.forEach((s) => s.needs.forEach((n) => catalogueNeeds.add(n)));
   check(`${page}: „შეღავათიან" არ ხმარობს`, html.includes("შეღავათიან"), false);
 });
 
+/*
+  მთავარი გვერდები.
+
+  issue #20: საზღაურის ბლოკი ჰეროში აღარ უნდა იყოს, გვერდის ქვედა ნაწილში, ცალკე
+  სექციაში. პოზიციას ვამოწმებთ და არა მხოლოდ არსებობას, თორემ ჰეროში დაბრუნება
+  შეუმჩნეველი დარჩება.
+*/
+[["index.html", "tarifi/"], ["en/index.html", "fees/"]].forEach(([page, href]) => {
+  const html = read(page);
+
+  const visitAt = html.indexOf('id="visit"');
+  const ctaAt = html.indexOf('class="cta-calc');
+  const feesAt = html.indexOf('id="fees"');
+
+  check(`${page}: საზღაურის სექცია არსებობს`, feesAt > -1, true);
+  check(`${page}: ბლოკი ჰეროს ქვემოთაა`, ctaAt > visitAt, true);
+  check(`${page}: ბლოკი საზღაურის სექციაშია`, ctaAt > feesAt, true);
+  check(`${page}: ბმული საზღაურის გვერდზე`, html.includes(`class="cta-calc cta-calc-block" href="${href}"`), true);
+
+  // ერთადერთი ბლოკი უნდა იყოს, ჰეროს დუბლიკატი არ დარჩენილიყო.
+  // მხოლოდ <a>-ს ვითვლით: შიგნით cta-calc-ico, -text და -arrow კლასებიცაა.
+  check(`${page}: ერთი ბლოკი`, (html.match(/<a class="cta-calc/g) || []).length, 1);
+});
+
+/*
+  issue #19: 31-ე მუხლის სრული ცხრილი საზღაურის გვერდზე. დადგენილებაში თექვსმეტი
+  მოქმედებაა, ამიტომ ცხრილში თექვსმეტი სტრიქონი უნდა იყოს.
+*/
+["tarifi/index.html", "en/fees/index.html"].forEach((page) => {
+  const html = read(page);
+  const from = html.search(/<h3 class="tariff-h3">(მყარი განაკვეთები|Fixed rates)/);
+  const to = html.indexOf("</table>", from);
+
+  check(`${page}: 31-ე მუხლის ცხრილი მოიძებნა`, from > -1 && to > from, true);
+
+  const rows = (html.slice(from, to).match(/<tr>/g) || []).length;
+  check(`${page}: თექვსმეტი მოქმედება პლუს სათაური`, rows, 17);
+});
+
 console.log(`checks passed: ${passed}`);
 
 if (failures.length) {

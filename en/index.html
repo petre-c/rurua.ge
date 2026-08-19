@@ -161,18 +161,6 @@
           </a>
         </div>
 
-        <!--
-          Fee calculator, our own page at /en/fees/.
-          It gets a large block in the hero because price is the first thing people ask.
-        -->
-        <a class="cta-calc" href="fees/">
-          <svg class="cta-calc-ico" aria-hidden="true"><use href="#icon-calc"></use></svg>
-          <span class="cta-calc-text">
-            <strong>Calculate the fee</strong>
-            <span>Work out the cost of a notarial act</span>
-          </span>
-          <span class="cta-calc-arrow" aria-hidden="true">&rarr;</span>
-        </a>
 
         <p class="hero-addr">
           <svg class="ico" aria-hidden="true"><use href="#icon-pin"></use></svg>
@@ -233,6 +221,30 @@
     Payment block. The amount field feeds both cards: it goes into the copied text and
     onto the TBC link. BOG has no link, because there is no open-by-IBAN scheme for it.
   -->
+
+  <!--
+    The fee block moved down from the hero. The hero keeps booking and contact; price sits
+    between the visit and the payment section, following what a client reads in order:
+    what to bring, what it costs, how to pay.
+  -->
+  <section id="fees" class="section">
+    <div class="wrap">
+      <h2 class="section-title">What it costs</h2>
+      <p class="section-sub">
+        The calculator uses the rates set by decree No. 507. The same page carries the full
+        list of notarial acts and the decree's own tables.
+      </p>
+      <a class="cta-calc cta-calc-block" href="fees/">
+        <svg class="cta-calc-ico" aria-hidden="true"><use href="#icon-calc"></use></svg>
+        <span class="cta-calc-text">
+          <strong>Calculate the fee</strong>
+          <span>What a notarial act costs</span>
+        </span>
+        <span class="cta-calc-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  </section>
+
   <section id="payment" class="section section-alt" data-pay>
     <div class="wrap">
       <h2 class="section-title">Payment</h2>
