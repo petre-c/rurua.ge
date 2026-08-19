@@ -252,7 +252,14 @@ a:hover { text-decoration: underline; }
 
 .addr { font-size: 1.05rem; }
 
-.hero-addr { margin-top: 26px; color: var(--muted); font-size: .95rem; }
+/* მისამართის რიგი: ქინძისთავი, ტექსტი და რუკის ღილაკი ერთ ხაზზე */
+.hero-addr {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px;
+  margin-top: 26px;
+  color: var(--muted); font-size: .95rem;
+}
+.hero-addr .ico { color: var(--accent); }
+.hero-addr span { flex: 0 1 auto; }
 
 /*
   პორტრეტი. სურათის ფონი თეთრია, ამიტომ პანელს ორივე თემაზე მუდმივი ღია ტონი აქვს
