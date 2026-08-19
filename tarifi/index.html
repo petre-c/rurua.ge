@@ -125,12 +125,22 @@
 
         <table class="calc-out">
           <tbody>
-            <tr><th scope="row">ნოტარიუსის საზღაური</th><td><output data-out="fee">0.00 ₾</output></td></tr>
-            <tr data-row="extra" hidden><th scope="row">პროექტისთვის</th><td><output data-out="extra">0.00 ₾</output></td></tr>
-            <tr data-row="vat"><th scope="row">დღგ</th><td><output data-out="vat">0.00 ₾</output></td></tr>
-            <tr class="calc-total"><th scope="row">სულ</th><td><output data-out="total">0.00 ₾</output></td></tr>
+            <tr><th scope="row">ნოტარიუსის საზღაური</th><td><output data-out="fee"></output></td></tr>
+            <tr data-row="extra" hidden><th scope="row">პროექტისთვის</th><td><output data-out="extra"></output></td></tr>
+            <tr data-row="registry"><th scope="row">რეესტრის საფასური</th><td><output data-out="registry"></output></td></tr>
+            <tr data-row="vat"><th scope="row">დღგ</th><td><output data-out="vat"></output></td></tr>
+            <tr class="calc-total"><th scope="row">სულ</th><td><output data-out="total"></output></td></tr>
           </tbody>
         </table>
+
+        <div class="calc-textbox">
+          <p class="calc-textbox-label">ტექსტი დოკუმენტისთვის</p>
+          <p class="calc-text" data-text></p>
+          <p class="calc-textbox-actions">
+            <button type="button" class="btn btn-ghost btn-sm" data-text-copy data-copied="დაკოპირდა">კოპირება</button>
+          </p>
+          <p class="calc-textbox-hint">ჩასვით სანოტარო აქტში. თანხა ციფრებით და სიტყვებით ერთადაა.</p>
+        </div>
       </div>
 
       <!-- ასლის დამოწმება -->
@@ -159,12 +169,21 @@
 
         <table class="calc-out">
           <tbody>
-            <tr><th scope="row">ნოტარიუსის საზღაური</th><td><output data-out="fee">0.00 ₾</output></td></tr>
-            <tr data-row="extra" hidden><th scope="row">ასლის დამზადება</th><td><output data-out="extra">0.00 ₾</output></td></tr>
-            <tr data-row="vat"><th scope="row">დღგ</th><td><output data-out="vat">0.00 ₾</output></td></tr>
-            <tr class="calc-total"><th scope="row">სულ</th><td><output data-out="total">0.00 ₾</output></td></tr>
+            <tr><th scope="row">ნოტარიუსის საზღაური</th><td><output data-out="fee"></output></td></tr>
+            <tr data-row="extra" hidden><th scope="row">ასლის დამზადება</th><td><output data-out="extra"></output></td></tr>
+            <tr data-row="vat"><th scope="row">დღგ</th><td><output data-out="vat"></output></td></tr>
+            <tr class="calc-total"><th scope="row">სულ</th><td><output data-out="total"></output></td></tr>
           </tbody>
         </table>
+
+        <div class="calc-textbox">
+          <p class="calc-textbox-label">ტექსტი დოკუმენტისთვის</p>
+          <p class="calc-text" data-text></p>
+          <p class="calc-textbox-actions">
+            <button type="button" class="btn btn-ghost btn-sm" data-text-copy data-copied="დაკოპირდა">კოპირება</button>
+          </p>
+          <p class="calc-textbox-hint">ჩასვით სანოტარო აქტში. თანხა ციფრებით და სიტყვებით ერთადაა.</p>
+        </div>
       </div>
 
       <!-- გარიგების დამოწმება -->
@@ -182,11 +201,21 @@
 
         <table class="calc-out">
           <tbody>
-            <tr><th scope="row">ნოტარიუსის საზღაური</th><td><output data-out="fee">0.00 ₾</output></td></tr>
-            <tr data-row="vat"><th scope="row">დღგ</th><td><output data-out="vat">0.00 ₾</output></td></tr>
-            <tr class="calc-total"><th scope="row">სულ</th><td><output data-out="total">0.00 ₾</output></td></tr>
+            <tr><th scope="row">ნოტარიუსის საზღაური</th><td><output data-out="fee"></output></td></tr>
+            <tr data-row="registry"><th scope="row">რეესტრის საფასური</th><td><output data-out="registry"></output></td></tr>
+            <tr data-row="vat"><th scope="row">დღგ</th><td><output data-out="vat"></output></td></tr>
+            <tr class="calc-total"><th scope="row">სულ</th><td><output data-out="total"></output></td></tr>
           </tbody>
         </table>
+
+        <div class="calc-textbox">
+          <p class="calc-textbox-label">ტექსტი დოკუმენტისთვის</p>
+          <p class="calc-text" data-text></p>
+          <p class="calc-textbox-actions">
+            <button type="button" class="btn btn-ghost btn-sm" data-text-copy data-copied="დაკოპირდა">კოპირება</button>
+          </p>
+          <p class="calc-textbox-hint">ჩასვით სანოტარო აქტში. თანხა ციფრებით და სიტყვებით ერთადაა.</p>
+        </div>
       </div>
 
       <!-- სამკვიდრო მოწმობა -->
@@ -206,15 +235,25 @@
 
         <label class="calc-vat"><input type="checkbox" checked data-in="vat"> დღგ 18%</label>
 
-        <p class="calc-note" data-note="თითოეული მემკვიდრის წილი {share}. გაანგარიშება მხოლოდ მაშინ მოქმედებს, თუ {heirs} მემკვიდრე სამკვიდროს თანაბარწილად იღებს." hidden></p>
+        <p class="calc-note" data-note="შენიშვნა: გამოიყენეთ მხოლოდ იმ შემთხვევაში, თუ ეს {heirs} მემკვიდრე თანაბარწილად იღებს სამკვიდროს თითოეული მემკვიდრის კუთვნილი წილის ღირებულებაა {share}" hidden></p>
 
         <table class="calc-out">
           <tbody>
-            <tr><th scope="row">ნოტარიუსის საზღაური</th><td><output data-out="fee">0.00 ₾</output></td></tr>
-            <tr data-row="vat"><th scope="row">დღგ</th><td><output data-out="vat">0.00 ₾</output></td></tr>
-            <tr class="calc-total"><th scope="row">სულ</th><td><output data-out="total">0.00 ₾</output></td></tr>
+            <tr><th scope="row">ნოტარიუსის საზღაური</th><td><output data-out="fee"></output></td></tr>
+            <tr data-row="registry"><th scope="row">რეესტრის საფასური</th><td><output data-out="registry"></output></td></tr>
+            <tr data-row="vat"><th scope="row">დღგ</th><td><output data-out="vat"></output></td></tr>
+            <tr class="calc-total"><th scope="row">სულ</th><td><output data-out="total"></output></td></tr>
           </tbody>
         </table>
+
+        <div class="calc-textbox">
+          <p class="calc-textbox-label">ტექსტი დოკუმენტისთვის</p>
+          <p class="calc-text" data-text></p>
+          <p class="calc-textbox-actions">
+            <button type="button" class="btn btn-ghost btn-sm" data-text-copy data-copied="დაკოპირდა">კოპირება</button>
+          </p>
+          <p class="calc-textbox-hint">ჩასვით სანოტარო აქტში. თანხა ციფრებით და სიტყვებით ერთადაა.</p>
+        </div>
       </div>
 
     </div>
@@ -259,6 +298,7 @@
 </footer>
 
 <script src="../assets/theme.js"></script>
+<script src="../assets/words.js"></script>
 <script src="../assets/fees.js"></script>
 </body>
 </html>

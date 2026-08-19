@@ -430,6 +430,29 @@ a:hover { text-decoration: underline; }
 /* განმარტებების სია გვერდის ბოლოს */
 .calc-info .ticks li { padding-bottom: 12px; }
 
+/*
+  დოკუმენტისთვის განკუთვნილი ტექსტი. ბარათის სიგანეზეა და ცალკე ფონით გამოყოფილი,
+  რომ ეტყობოდეს: ეს ასლისთვისაა და არა კითხვისთვის.
+*/
+.calc-textbox {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.calc-textbox-label { margin: 0 0 8px; color: var(--muted); font-size: .82rem; text-transform: uppercase; letter-spacing: .05em; }
+.calc-text {
+  margin: 0 0 12px;
+  padding: 12px 14px;
+  background: var(--bg-alt);
+  border-radius: 9px;
+  font-size: .9rem;
+  line-height: 1.6;
+  max-height: 190px;
+  overflow-y: auto;
+}
+.calc-textbox-actions { margin: 0; }
+.calc-textbox-hint { margin: 10px 0 0; color: var(--muted); font-size: .82rem; }
+
 .calc-list {
   display: grid;
   /* min() იცავს ვიწრო ეკრანს: 340px მხოლოდ მაშინ, თუ ადგილი ნამდვილად არის */
