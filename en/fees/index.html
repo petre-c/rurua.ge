@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notary fee calculator | Notary Tinatin Rurua</title>
+<meta name="description" content="Notary fee calculator: certifying signatures and copies, certifying transactions under article 23, issuing a certificate of inheritance, with VAT.">
+<meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1216" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://rurua.ge/en/fees/">
+
+<link rel="alternate" hreflang="ka" href="https://rurua.ge/tarifi/">
+<link rel="alternate" hreflang="en" href="https://rurua.ge/en/fees/">
+<link rel="alternate" hreflang="x-default" href="https://rurua.ge/tarifi/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Notary fee calculator">
+<meta property="og:description" content="Signatures and copies, transactions, certificates of inheritance.">
+<meta property="og:url" content="https://rurua.ge/en/fees/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600&family=Noto+Serif+Georgian:wght@500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem("theme");
+      if (saved === "dark" || saved === "light") document.documentElement.dataset.theme = saved;
+    } catch (e) { /* localStorage blocked, stay on the system theme */ }
+  })();
+</script>
+</head>
+<body>
+
+<a class="skip" href="#calc">Skip to the calculator</a>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="../">
+      <span class="brand-mark" aria-hidden="true">ნ</span>
+      <span class="brand-text">
+        <strong>Tinatin Rurua</strong>
+        <span>Notary</span>
+      </span>
+    </a>
+
+    <nav class="head-nav">
+      <a href="../#services">Services</a>
+      <a href="../#visit">Your visit</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+
+    <div class="head-actions">
+      <p class="lang" aria-label="Language">
+        <a href="../../tarifi/" lang="ka">ქარ</a>
+        <span aria-current="true">Eng</span>
+      </p>
+      <a class="btn btn-primary btn-sm" href="tel:+995591709931">Call</a>
+      <button id="theme-toggle" class="theme-btn" type="button" title="Theme">
+        <span class="theme-icon" aria-hidden="true"></span>
+        <span class="sr-only">Switch theme</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="section calc-head">
+    <div class="wrap">
+      <p class="eyebrow">Calculator</p>
+      <h1>Notary fees</h1>
+      <p class="lede">
+        Enter the numbers and the fee is calculated as you type. The total is broken down:
+        the notary fee, any extra cost and VAT are shown separately.
+      </p>
+      <p class="note">
+        These figures are indicative. The exact amount depends on the specific document and
+        is confirmed at the office. Where there is any doubt, the rate set by law applies.
+      </p>
+    </div>
+  </section>
+
+  <section id="calc" class="section section-alt">
+    <div class="wrap calc-list">
+
+      <!-- Certifying a signature -->
+      <div class="card calc" data-calc="signature">
+        <h2>Certifying a signature</h2>
+
+        <div class="calc-fields">
+          <label>
+            <span>Pages in the document</span>
+            <input type="number" min="1" step="1" value="1" data-in="pages">
+          </label>
+          <label>
+            <span>People signing</span>
+            <input type="number" min="1" step="1" value="1" data-in="people">
+          </label>
+          <label>
+            <span>Copies</span>
+            <input type="number" min="1" step="1" value="1" data-in="copies">
+          </label>
+        </div>
+
+        <fieldset class="calc-modes" data-mode-group="projectMode">
+          <legend>Drafting the document</legend>
+          <label><input type="radio" name="sig-project" data-mode="none" checked> No</label>
+          <label><input type="radio" name="sig-project" data-mode="ten"> 10 ₾</label>
+          <label><input type="radio" name="sig-project" id="sig-project-other" data-mode="other"> Other</label>
+          <input type="number" min="0" step="0.01" placeholder="0" data-in="projectAmount" data-enabled-by="sig-project-other" aria-label="Drafting fee">
+        </fieldset>
+
+        <label class="calc-vat"><input type="checkbox" checked data-in="vat"> VAT 18%</label>
+
+        <table class="calc-out">
+          <tbody>
+            <tr><th scope="row">Notary fee</th><td><output data-out="fee">0.00 ₾</output></td></tr>
+            <tr data-row="extra" hidden><th scope="row">Drafting</th><td><output data-out="extra">0.00 ₾</output></td></tr>
+            <tr data-row="vat"><th scope="row">VAT</th><td><output data-out="vat">0.00 ₾</output></td></tr>
+            <tr class="calc-total"><th scope="row">Total</th><td><output data-out="total">0.00 ₾</output></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Certifying a copy -->
+      <div class="card calc" data-calc="copy">
+        <h2>Certifying a copy</h2>
+
+        <div class="calc-fields">
+          <label>
+            <span>Pages in the document</span>
+            <input type="number" min="1" step="1" value="1" data-in="pages">
+          </label>
+          <label>
+            <span>Copies</span>
+            <input type="number" min="1" step="1" value="1" data-in="copies">
+          </label>
+        </div>
+
+        <fieldset class="calc-modes" data-mode-group="copyingMode">
+          <legend>Making the copy, tetri per page</legend>
+          <label><input type="radio" name="copy-making" data-mode="none" checked> No</label>
+          <label><input type="radio" name="copy-making" id="copy-making-yes" data-mode="yes"> Yes</label>
+          <input type="number" min="0" step="1" placeholder="0" data-in="copyingTetri" data-enabled-by="copy-making-yes" aria-label="Tetri per page">
+        </fieldset>
+
+        <label class="calc-vat"><input type="checkbox" checked data-in="vat"> VAT 18%</label>
+
+        <table class="calc-out">
+          <tbody>
+            <tr><th scope="row">Notary fee</th><td><output data-out="fee">0.00 ₾</output></td></tr>
+            <tr data-row="extra" hidden><th scope="row">Making the copy</th><td><output data-out="extra">0.00 ₾</output></td></tr>
+            <tr data-row="vat"><th scope="row">VAT</th><td><output data-out="vat">0.00 ₾</output></td></tr>
+            <tr class="calc-total"><th scope="row">Total</th><td><output data-out="total">0.00 ₾</output></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Certifying a transaction -->
+      <div class="card calc" data-calc="transaction">
+        <h2>Certifying a transaction, article 23</h2>
+
+        <div class="calc-fields">
+          <label>
+            <span>Value of the transaction, ₾</span>
+            <input type="number" min="0" step="0.01" placeholder="0" data-in="value">
+          </label>
+        </div>
+
+        <label class="calc-vat"><input type="checkbox" checked data-in="vat"> VAT 18%</label>
+
+        <table class="calc-out">
+          <tbody>
+            <tr><th scope="row">Notary fee</th><td><output data-out="fee">0.00 ₾</output></td></tr>
+            <tr data-row="vat"><th scope="row">VAT</th><td><output data-out="vat">0.00 ₾</output></td></tr>
+            <tr class="calc-total"><th scope="row">Total</th><td><output data-out="total">0.00 ₾</output></td></tr>
+          </tbody>
+        </table>
+
+        <p class="calc-hint">
+          The scale is progressive: the larger the transaction, the smaller the percentage
+          charged on the upper band.
+        </p>
+      </div>
+
+      <!-- Certificate of inheritance -->
+      <div class="card calc" data-calc="inheritance">
+        <h2>Certificate of inheritance</h2>
+
+        <div class="calc-fields">
+          <label>
+            <span>Value of the estate, ₾</span>
+            <input type="number" min="0" step="0.01" placeholder="0" data-in="value">
+          </label>
+          <label>
+            <span>Number of heirs</span>
+            <input type="number" min="1" step="1" value="1" data-in="heirs">
+          </label>
+        </div>
+
+        <label class="calc-vat"><input type="checkbox" checked data-in="vat"> VAT 18%</label>
+
+        <p class="calc-note" data-note="Each heir's share is {share}. This calculation only holds if all {heirs} heirs take equal shares of the estate." hidden></p>
+
+        <table class="calc-out">
+          <tbody>
+            <tr><th scope="row">Notary fee</th><td><output data-out="fee">0.00 ₾</output></td></tr>
+            <tr data-row="vat"><th scope="row">VAT</th><td><output data-out="vat">0.00 ₾</output></td></tr>
+            <tr class="calc-total"><th scope="row">Total</th><td><output data-out="total">0.00 ₾</output></td></tr>
+          </tbody>
+        </table>
+
+        <p class="calc-hint">
+          The fee is half the transaction scale and is calculated on each heir's share.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="section-title">Still not sure?</h2>
+      <p class="lede">
+        Call or book a visit, and you will be told the exact amount for your document.
+      </p>
+      <div class="hero-btns">
+        <a class="btn btn-primary btn-cal" href="https://cal.com/rurua/30" target="_blank" rel="noopener">Book a visit</a>
+        <a class="btn btn-ghost" href="tel:+995591709931">+995 591 70 99 31</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <p>Notary Tinatin Rurua &middot; 6 Al. Kazbegi Avenue, Tbilisi</p>
+    <p><a href="tel:+995591709931">591 70 99 31</a></p>
+  </div>
+</footer>
+
+<script src="../../assets/theme.js"></script>
+<script src="../../assets/fees.js"></script>
+</body>
+</html>

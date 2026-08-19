@@ -368,7 +368,78 @@ a:hover { text-decoration: underline; }
 .contact-grid p { margin: 0; }
 .contact-grid .card p:not(.addr) { color: var(--muted); font-size: .96rem; }
 
+/* ---------- კალკულატორი ---------- */
+
+.calc-head .note { max-width: 62ch; margin-top: 24px; }
+
+.calc-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.calc h2 { font-size: 1.15rem; margin-bottom: 18px; }
+
+/* ველების რიგი: წარწერა ზემოთ, ველი ქვემოთ */
+.calc-fields { display: grid; gap: 12px; margin-bottom: 16px; }
+.calc-fields label { display: grid; gap: 5px; }
+.calc-fields span { color: var(--muted); font-size: .88rem; }
+
+.calc input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+}
+.calc input[type="number"]:disabled { opacity: .45; }
+
+/* რადიო ჯგუფი ერთ ხაზზე, ბოლოში კი „სხვა" ველი */
+.calc-modes {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px;
+  margin: 0 0 16px; padding: 12px 14px;
+  border: 1px solid var(--border); border-radius: 9px;
+}
+.calc-modes legend { padding: 0 6px; color: var(--muted); font-size: .82rem; }
+.calc-modes label { display: inline-flex; align-items: center; gap: 6px; font-size: .95rem; }
+.calc-modes input[type="number"] { width: 92px; padding: 6px 9px; }
+
+.calc-vat {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-bottom: 18px;
+  color: var(--muted); font-size: .95rem;
+}
+
+/* შედეგების ცხრილი */
+.calc-out { width: 100%; border-collapse: collapse; }
+.calc-out th, .calc-out td { padding: 9px 0; text-align: left; font-weight: 400; }
+.calc-out th { color: var(--muted); font-size: .92rem; }
+.calc-out td { text-align: right; font-variant-numeric: tabular-nums; }
+.calc-out tr + tr th, .calc-out tr + tr td { border-top: 1px solid var(--border); }
+
+.calc-total th, .calc-total td {
+  padding-top: 12px;
+  font-family: var(--serif); font-size: 1.15rem; font-weight: 600;
+  color: var(--text);
+}
+.calc-total th, .calc-total td { border-top: 2px solid var(--border) !important; }
+
+.calc-note {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  background: var(--accent-soft);
+  border-radius: 9px;
+  font-size: .92rem;
+}
+
+.calc-hint { margin: 16px 0 0; color: var(--muted); font-size: .88rem; }
+
 /* ---------- ფუტერი ---------- */
+
 
 .muted-note { color: var(--muted); font-size: .9rem; margin: 0; }
 

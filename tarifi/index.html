@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>სანოტარო საზღაურის კალკულატორი | ნოტარიუსი თინათინ რურუა</title>
+<meta name="description" content="სანოტარო მოქმედების საზღაურის კალკულატორი: ხელმოწერის და ასლის დამოწმება, გარიგების დამოწმება 23-ე მუხლით, სამკვიდრო მოწმობის გაცემა. დღგ-ის ჩათვლით.">
+<meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1216" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://rurua.ge/tarifi/">
+
+<link rel="alternate" hreflang="ka" href="https://rurua.ge/tarifi/">
+<link rel="alternate" hreflang="en" href="https://rurua.ge/en/fees/">
+<link rel="alternate" hreflang="x-default" href="https://rurua.ge/tarifi/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ka_GE">
+<meta property="og:title" content="სანოტარო საზღაურის კალკულატორი">
+<meta property="og:description" content="ხელმოწერის და ასლის დამოწმება, გარიგება, სამკვიდრო მოწმობა.">
+<meta property="og:url" content="https://rurua.ge/tarifi/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600&family=Noto+Serif+Georgian:wght@500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem("theme");
+      if (saved === "dark" || saved === "light") document.documentElement.dataset.theme = saved;
+    } catch (e) { /* localStorage დაბლოკილია, სისტემურ თემაზე ვრჩებით */ }
+  })();
+</script>
+</head>
+<body>
+
+<a class="skip" href="#calc">გადასვლა კალკულატორზე</a>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="../">
+      <span class="brand-mark" aria-hidden="true">ნ</span>
+      <span class="brand-text">
+        <strong>თინათინ რურუა</strong>
+        <span>ნოტარიუსი</span>
+      </span>
+    </a>
+
+    <nav class="head-nav">
+      <a href="../#services">მომსახურება</a>
+      <a href="../#visit">ვიზიტი</a>
+      <a href="../#contact">კონტაქტი</a>
+    </nav>
+
+    <div class="head-actions">
+      <p class="lang" aria-label="ენა">
+        <span aria-current="true">ქარ</span>
+        <a href="../en/fees/" lang="en">Eng</a>
+      </p>
+      <a class="btn btn-primary btn-sm" href="tel:+995591709931">დარეკვა</a>
+      <button id="theme-toggle" class="theme-btn" type="button" title="თემა">
+        <span class="theme-icon" aria-hidden="true"></span>
+        <span class="sr-only">თემის შეცვლა</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="section calc-head">
+    <div class="wrap">
+      <p class="eyebrow">კალკულატორი</p>
+      <h1>სანოტარო საზღაური</h1>
+      <p class="lede">
+        შეიყვანეთ მონაცემები და საზღაური მაშინვე დაითვლება. თანხა დაშლილად ჩანს:
+        ნოტარიუსის საზღაური, დამატებითი ხარჯი და დღგ ცალკე.
+      </p>
+      <p class="note">
+        გაანგარიშება საცნობაროა. ზუსტი თანხა კონკრეტულ დოკუმენტზე დამოკიდებულია,
+        ამიტომ ბიუროში დაზუსტდება. სადავო შემთხვევაში კანონით დადგენილი განაკვეთი მოქმედებს.
+      </p>
+    </div>
+  </section>
+
+  <section id="calc" class="section section-alt">
+    <div class="wrap calc-list">
+
+      <!-- ხელმოწერის ნამდვილობის დამოწმება -->
+      <div class="card calc" data-calc="signature">
+        <h2>ხელმოწერის ნამდვილობის დამოწმება</h2>
+
+        <div class="calc-fields">
+          <label>
+            <span>დოკუმენტის გვერდები</span>
+            <input type="number" min="1" step="1" value="1" data-in="pages">
+          </label>
+          <label>
+            <span>ხელმომწერი პირები</span>
+            <input type="number" min="1" step="1" value="1" data-in="people">
+          </label>
+          <label>
+            <span>ეგზემპლარები</span>
+            <input type="number" min="1" step="1" value="1" data-in="copies">
+          </label>
+        </div>
+
+        <fieldset class="calc-modes" data-mode-group="projectMode">
+          <legend>პროექტის მომზადება</legend>
+          <label><input type="radio" name="sig-project" data-mode="none" checked> არა</label>
+          <label><input type="radio" name="sig-project" data-mode="ten"> 10 ₾</label>
+          <label><input type="radio" name="sig-project" id="sig-project-other" data-mode="other"> სხვა</label>
+          <input type="number" min="0" step="0.01" placeholder="0" data-in="projectAmount" data-enabled-by="sig-project-other" aria-label="პროექტის თანხა">
+        </fieldset>
+
+        <label class="calc-vat"><input type="checkbox" checked data-in="vat"> დღგ 18%</label>
+
+        <table class="calc-out">
+          <tbody>
+            <tr><th scope="row">ნოტარიუსის საზღაური</th><td><output data-out="fee">0.00 ₾</output></td></tr>
+            <tr data-row="extra" hidden><th scope="row">პროექტისთვის</th><td><output data-out="extra">0.00 ₾</output></td></tr>
+            <tr data-row="vat"><th scope="row">დღგ</th><td><output data-out="vat">0.00 ₾</output></td></tr>
+            <tr class="calc-total"><th scope="row">სულ</th><td><output data-out="total">0.00 ₾</output></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ასლის დამოწმება -->
+      <div class="card calc" data-calc="copy">
+        <h2>ასლის ნამდვილობის დამოწმება</h2>
+
+        <div class="calc-fields">
+          <label>
+            <span>დოკუმენტის გვერდები</span>
+            <input type="number" min="1" step="1" value="1" data-in="pages">
+          </label>
+          <label>
+            <span>ეგზემპლარები</span>
+            <input type="number" min="1" step="1" value="1" data-in="copies">
+          </label>
+        </div>
+
+        <fieldset class="calc-modes" data-mode-group="copyingMode">
+          <legend>ასლის დამზადება, თეთრი ერთ გვერდზე</legend>
+          <label><input type="radio" name="copy-making" data-mode="none" checked> არა</label>
+          <label><input type="radio" name="copy-making" id="copy-making-yes" data-mode="yes"> კი</label>
+          <input type="number" min="0" step="1" placeholder="0" data-in="copyingTetri" data-enabled-by="copy-making-yes" aria-label="თეთრი ერთ გვერდზე">
+        </fieldset>
+
+        <label class="calc-vat"><input type="checkbox" checked data-in="vat"> დღგ 18%</label>
+
+        <table class="calc-out">
+          <tbody>
+            <tr><th scope="row">ნოტარიუსის საზღაური</th><td><output data-out="fee">0.00 ₾</output></td></tr>
+            <tr data-row="extra" hidden><th scope="row">ასლის დამზადება</th><td><output data-out="extra">0.00 ₾</output></td></tr>
+            <tr data-row="vat"><th scope="row">დღგ</th><td><output data-out="vat">0.00 ₾</output></td></tr>
+            <tr class="calc-total"><th scope="row">სულ</th><td><output data-out="total">0.00 ₾</output></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- გარიგების დამოწმება -->
+      <div class="card calc" data-calc="transaction">
+        <h2>გარიგების დამოწმება, 23-ე მუხლი</h2>
+
+        <div class="calc-fields">
+          <label>
+            <span>გარიგების ღირებულება, ₾</span>
+            <input type="number" min="0" step="0.01" placeholder="0" data-in="value">
+          </label>
+        </div>
+
+        <label class="calc-vat"><input type="checkbox" checked data-in="vat"> დღგ 18%</label>
+
+        <table class="calc-out">
+          <tbody>
+            <tr><th scope="row">ნოტარიუსის საზღაური</th><td><output data-out="fee">0.00 ₾</output></td></tr>
+            <tr data-row="vat"><th scope="row">დღგ</th><td><output data-out="vat">0.00 ₾</output></td></tr>
+            <tr class="calc-total"><th scope="row">სულ</th><td><output data-out="total">0.00 ₾</output></td></tr>
+          </tbody>
+        </table>
+
+        <p class="calc-hint">
+          განაკვეთი პროგრესულია: რაც დიდია გარიგების ღირებულება, მით ნაკლებია პროცენტი
+          ზედა საფეხურზე.
+        </p>
+      </div>
+
+      <!-- სამკვიდრო მოწმობა -->
+      <div class="card calc" data-calc="inheritance">
+        <h2>სამკვიდრო მოწმობის გაცემა</h2>
+
+        <div class="calc-fields">
+          <label>
+            <span>სამკვიდროს ღირებულება, ₾</span>
+            <input type="number" min="0" step="0.01" placeholder="0" data-in="value">
+          </label>
+          <label>
+            <span>მემკვიდრეების რაოდენობა</span>
+            <input type="number" min="1" step="1" value="1" data-in="heirs">
+          </label>
+        </div>
+
+        <label class="calc-vat"><input type="checkbox" checked data-in="vat"> დღგ 18%</label>
+
+        <p class="calc-note" data-note="თითოეული მემკვიდრის წილი {share}. გაანგარიშება მხოლოდ მაშინ მოქმედებს, თუ {heirs} მემკვიდრე სამკვიდროს თანაბარწილად იღებს." hidden></p>
+
+        <table class="calc-out">
+          <tbody>
+            <tr><th scope="row">ნოტარიუსის საზღაური</th><td><output data-out="fee">0.00 ₾</output></td></tr>
+            <tr data-row="vat"><th scope="row">დღგ</th><td><output data-out="vat">0.00 ₾</output></td></tr>
+            <tr class="calc-total"><th scope="row">სულ</th><td><output data-out="total">0.00 ₾</output></td></tr>
+          </tbody>
+        </table>
+
+        <p class="calc-hint">
+          საზღაური გარიგების შკალის ნახევარია და თითოეული მემკვიდრის წილზე ითვლება.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="section-title">კითხვა დარჩა?</h2>
+      <p class="lede">
+        დაგვირეკეთ ან დაჯავშნეთ ვიზიტი, და კონკრეტულ დოკუმენტზე ზუსტ თანხას გეტყვით.
+      </p>
+      <div class="hero-btns">
+        <a class="btn btn-primary btn-cal" href="https://cal.com/rurua/30" target="_blank" rel="noopener">ვიზიტის დაჯავშნა</a>
+        <a class="btn btn-ghost" href="tel:+995591709931">591 70 99 31</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <p>ნოტარიუსი თინათინ რურუა &middot; თბილისი, ალ. ყაზბეგის გამზირი N6</p>
+    <p><a href="tel:+995591709931">591 70 99 31</a></p>
+  </div>
+</footer>
+
+<script src="../assets/theme.js"></script>
+<script src="../assets/fees.js"></script>
+</body>
+</html>
