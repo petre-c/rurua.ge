@@ -239,6 +239,8 @@ a:hover { text-decoration: underline; }
 .lede { font-size: 1.1rem; color: var(--muted); max-width: 46ch; }
 
 .hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+/* როცა სათაურის ქვემოთ აღწერა არ არის, ღილაკები უფრო ახლოს დგება */
+.hero-copy h1 + .hero-btns { margin-top: 18px; }
 
 .card {
   background: var(--surface);
@@ -442,6 +444,12 @@ a:hover { text-decoration: underline; }
 
 /* ---------- ფუტერი ---------- */
 
+
+.visit-online { color: var(--muted); font-size: .95rem; margin: 18px 0 12px; }
+
+/* ონლაინ შეხვედრის ღილაკი, იმავე პრინციპით: ფერი მხოლოდ ხატულაზე */
+.btn-video { display: inline-flex; align-items: center; gap: 9px; }
+.btn-video .ico { color: var(--accent); }
 
 .muted-note { color: var(--muted); font-size: .9rem; margin: 0; }
 
