@@ -370,6 +370,8 @@ a:hover { text-decoration: underline; }
 
 /* ---------- კალკულატორი ---------- */
 
+.calc-top-cta { margin-top: 28px; }
+
 .calc-head .note { max-width: 62ch; margin-top: 24px; }
 
 .calc-list {
