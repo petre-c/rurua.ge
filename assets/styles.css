@@ -22,6 +22,8 @@
   --shadow:    0 1px 2px rgba(16, 24, 40, .05), 0 8px 24px rgba(16, 24, 40, .06);
   --wa:        #1da851;
   --wa-soft:   #eaf7ee;
+  --star:      #c9891b;
+  --star-soft: #fdf3e2;
 
   --sans: "Noto Sans Georgian", "BPG Nino Mtavruli", system-ui, -apple-system, "Segoe UI", sans-serif;
   --serif: "Noto Serif Georgian", "Noto Sans Georgian", Georgia, serif;
@@ -46,6 +48,8 @@
     --shadow:    0 1px 2px rgba(0, 0, 0, .4), 0 10px 30px rgba(0, 0, 0, .35);
     --wa:        #3ddc7f;
     --wa-soft:   #16261d;
+    --star:      #f0b429;
+    --star-soft: #2a2113;
 
     color-scheme: dark;
   }
@@ -64,6 +68,8 @@
   --shadow:    0 1px 2px rgba(0, 0, 0, .4), 0 10px 30px rgba(0, 0, 0, .35);
   --wa:        #3ddc7f;
   --wa-soft:   #16261d;
+  --star:      #f0b429;
+  --star-soft: #2a2113;
 
   color-scheme: dark;
 }
@@ -204,6 +210,12 @@ a:hover { text-decoration: underline; }
 
 .ico { width: 1.15em; height: 1.15em; flex: 0 0 auto; }
 
+/* შეფასების ღილაკი, იგივე ლოგიკა რაც WhatsApp-ისას: ფერი მხოლოდ ხატულაზე */
+.btn-star { display: inline-flex; align-items: center; gap: 9px;
+  background: transparent; color: var(--text); border-color: var(--border); }
+.btn-star:hover { background: var(--star-soft); border-color: var(--star); }
+.btn-star .ico { color: var(--star); }
+
 /* ---------- ჰერო ---------- */
 
 .hero { padding: clamp(48px, 8vw, 96px) 0 clamp(40px, 6vw, 72px); }
@@ -312,9 +324,10 @@ a:hover { text-decoration: underline; }
   color: var(--accent);
 }
 
+/* ოთხი ბარათი ორ სვეტში ჯდება, ერთ რიგში ოთხივე ძალიან ვიწრო გამოდიოდა */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   margin-top: 24px;
 }
@@ -339,7 +352,7 @@ a:hover { text-decoration: underline; }
 /* ---------- მობილური ---------- */
 
 @media (max-width: 860px) {
-  .hero-inner, .two-col { grid-template-columns: 1fr; }
+  .hero-inner, .two-col, .contact-grid { grid-template-columns: 1fr; }
   .head-nav { display: none; }
 }
 
