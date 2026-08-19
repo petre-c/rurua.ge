@@ -278,6 +278,36 @@ a:hover { text-decoration: underline; }
   font-size: .88rem;
 }
 
+/*
+  საზღაურის კალკულატორის დიდი ღილაკი ჰეროში. ერთი ბლოკია სამი ნაწილით:
+  ხატულა, ორსტრიქონიანი ტექსტი და ისარი, რომელიც ჩვენებას აძლევს, რომ გარე გვერდზე გადავდივართ.
+*/
+.cta-calc {
+  display: flex; align-items: center; gap: 16px;
+  margin-top: 26px;
+  padding: 18px 22px;
+  max-width: 520px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  color: var(--text);
+}
+.cta-calc:hover { text-decoration: none; background: var(--surface); box-shadow: var(--shadow); }
+
+.cta-calc-ico { width: 30px; height: 30px; flex: 0 0 30px; color: var(--accent); }
+
+.cta-calc-text { display: flex; flex-direction: column; line-height: 1.35; margin-right: auto; }
+.cta-calc-text strong { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; }
+.cta-calc-text span { color: var(--muted); font-size: .88rem; }
+
+.cta-calc-arrow { color: var(--accent); font-size: 1.3rem; }
+.cta-calc:hover .cta-calc-arrow { transform: translateX(3px); }
+.cta-calc-arrow { transition: transform .15s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-calc-arrow { transition: none; }
+}
+
 /* ---------- სექციები ---------- */
 
 .section { padding: clamp(48px, 7vw, 84px) 0; }
