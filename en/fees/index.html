@@ -84,25 +84,10 @@
 
 <main>
 
+  <!-- Short heading, calculators right below. The explanations sit at the foot of the page. -->
   <section class="section calc-head">
     <div class="wrap">
-      <p class="eyebrow">Calculator</p>
       <h1>Notary fees</h1>
-      <p class="lede">
-        Enter the numbers and the fee is calculated as you type. The total is broken down:
-        the notary fee, any extra cost and VAT are shown separately.
-      </p>
-      <p class="note">
-        These figures are indicative. The exact amount depends on the specific document and
-        is confirmed at the office. Where there is any doubt, the rate set by law applies.
-      </p>
-      <div class="hero-btns calc-top-cta">
-        <a class="btn btn-primary btn-cal" href="https://cal.com/rurua/30" target="_blank" rel="noopener">
-          <svg class="ico" aria-hidden="true"><use href="#icon-booking"></use></svg>
-          Book a visit
-        </a>
-        <a class="btn btn-ghost" href="tel:+995591709931">+995 591 70 99 31</a>
-      </div>
     </div>
   </section>
 
@@ -202,11 +187,6 @@
             <tr class="calc-total"><th scope="row">Total</th><td><output data-out="total">0.00 ₾</output></td></tr>
           </tbody>
         </table>
-
-        <p class="calc-hint">
-          The scale is progressive: the larger the transaction, the smaller the percentage
-          charged on the upper band.
-        </p>
       </div>
 
       <!-- Certificate of inheritance -->
@@ -235,12 +215,24 @@
             <tr class="calc-total"><th scope="row">Total</th><td><output data-out="total">0.00 ₾</output></td></tr>
           </tbody>
         </table>
-
-        <p class="calc-hint">
-          The fee is half the transaction scale and is calculated on each heir's share.
-        </p>
       </div>
 
+    </div>
+  </section>
+
+  <!--
+    The explanations come after the calculators: someone working out a fee meets the
+    fields first, not paragraphs.
+  -->
+  <section class="section calc-info">
+    <div class="wrap">
+      <h2 class="section-title">Good to know</h2>
+      <ul class="ticks">
+        <li>Every total is broken down: the notary fee, any extra cost and VAT are listed separately.</li>
+        <li>The transaction scale is progressive: the larger the value, the smaller the percentage on the upper band.</li>
+        <li>A certificate of inheritance costs half the transaction scale, calculated on each heir's share.</li>
+        <li>These figures are indicative. The exact amount depends on the document and is confirmed at the office.</li>
+      </ul>
     </div>
   </section>
 
