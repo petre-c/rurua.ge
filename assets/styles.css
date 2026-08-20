@@ -346,6 +346,9 @@ a:hover { text-decoration: underline; }
 .section-title { font-size: clamp(1.5rem, 3vw, 2rem); }
 .section-sub { color: var(--muted); margin-bottom: 32px; }
 
+/* Google-ის შეფასების ერთხაზიანი შენიშვნა: სათაურის გარეშე დგას */
+.review-note { color: var(--muted); margin: 0; }
+
 .grid {
   list-style: none; margin: 0; padding: 0;
   display: grid;
