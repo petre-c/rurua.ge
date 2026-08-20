@@ -103,7 +103,7 @@
   </symbol>
 </svg>
 
-<a class="skip" href="#contact">Skip to contact details</a>
+<a class="skip" href="#hero">Skip to content</a>
 
 <header class="site-head">
   <div class="wrap head-inner">
@@ -114,11 +114,6 @@
         <span>Notary</span>
       </span>
     </a>
-
-    <nav class="head-nav">
-      <a href="#contact">Contact</a>
-      <a href="fees/">Fees</a>
-    </nav>
 
     <div class="head-actions">
       <!-- Language switch, each version is its own page -->
@@ -136,7 +131,7 @@
 
 <main>
 
-  <section class="hero">
+  <section id="hero" class="hero">
     <div class="wrap hero-inner">
       <div class="hero-copy">
         <h1>Notary<br>Tinatin Rurua</h1>
@@ -161,6 +156,8 @@
             <svg class="ico" aria-hidden="true"><use href="#icon-wa"></use></svg>
             WhatsApp
           </a>
+          <!-- In-page link: the header nav is gone -->
+          <a class="btn btn-ghost" href="#payment">Payment</a>
         </div>
 
 
@@ -208,43 +205,19 @@
     </div>
   </section>
 
-  <section id="contact" class="section">
+  <!--
+    Google review. The contact section is gone: address, phone, email and WhatsApp all sit
+    in the hero and in the footer. The review was the one card that repeated nothing, so it stays.
+    The !12e1 suffix opens the review form itself rather than just the listing.
+  -->
+  <section id="review" class="section">
     <div class="wrap">
-      <h2 class="section-title">Contact</h2>
-      <div class="contact-grid">
-        <div class="card">
-          <h3>Address</h3>
-          <p class="addr"><a href="https://www.google.com/maps/place/?cid=2737741856713212816" target="_blank" rel="noopener">6 Aleksandre Kazbegi Avenue<br>Tbilisi</a></p>
-          <p><a href="https://www.google.com/maps/place/?cid=2737741856713212816" target="_blank" rel="noopener">Open in maps</a></p>
-        </div>
-        <div class="card">
-          <h3>Phone and email</h3>
-          <p class="addr">
-            <a href="tel:+995591709931">+995 591 70 99 31</a><br>
-            <a href="mailto:tikarurua@gmail.com?subject=Enquiry%20from%20rurua.ge">tikarurua@gmail.com</a>
-          </p>
-        </div>
-        <div class="card">
-          <h3>WhatsApp</h3>
-          <p>Send a message on WhatsApp. The message opens with a note that you came from this website, so the context is there from the start.</p>
-          <p><a class="btn btn-wa btn-sm" href="https://wa.me/995591709931?text=Hello%21%20I%20am%20writing%20from%20your%20website%20rurua.ge.%20I%20would%20like%20to%20ask%20about%20a%20notary%20service%3A%20" target="_blank" rel="noopener">
-            <svg class="ico" aria-hidden="true"><use href="#icon-wa"></use></svg>
-            Message on WhatsApp
-          </a></p>
-        </div>
-        <!--
-          Google review card. The !12e1 suffix opens the review form itself rather than
-          just the listing. The pair after 1s is the bureau's Google feature id.
-        -->
-        <div class="card">
-          <h3>Review on Google</h3>
-          <p>If you were happy with the service, leave a review. It helps other people find the office.</p>
-          <p><a class="btn btn-star btn-sm" href="https://www.google.com/maps/place//data=!4m3!3m2!1s0x404473003c50f1db:0x25fe69b6a81c0390!12e1" target="_blank" rel="noopener">
-            <svg class="ico" aria-hidden="true"><use href="#icon-star"></use></svg>
-            Leave a review
-          </a></p>
-        </div>
-      </div>
+      <h2 class="section-title">Review on Google</h2>
+      <p class="section-sub">If you were happy with the service, leave a review. It helps other people find the office.</p>
+      <p><a class="btn btn-star" href="https://www.google.com/maps/place//data=!4m3!3m2!1s0x404473003c50f1db:0x25fe69b6a81c0390!12e1" target="_blank" rel="noopener">
+        <svg class="ico" aria-hidden="true"><use href="#icon-star"></use></svg>
+        Leave a review
+      </a></p>
     </div>
   </section>
 

@@ -106,7 +106,7 @@
   </symbol>
 </svg>
 
-<a class="skip" href="#contact">გადასვლა კონტაქტზე</a>
+<a class="skip" href="#hero">გადასვლა შინაარსზე</a>
 
 <header class="site-head">
   <div class="wrap head-inner">
@@ -117,11 +117,6 @@
         <span>ნოტარიუსი</span>
       </span>
     </a>
-
-    <nav class="head-nav">
-      <a href="#contact">კონტაქტი</a>
-      <a href="tarifi/">საზღაური</a>
-    </nav>
 
     <div class="head-actions">
       <!-- ენის გადამრთველი: ორივე ვერსია ცალკე გვერდია -->
@@ -140,7 +135,7 @@
 
 <main>
 
-  <section class="hero">
+  <section id="hero" class="hero">
     <div class="wrap hero-inner">
       <div class="hero-copy">
         <h1>ნოტარიუსი<br>თინათინ რურუა</h1>
@@ -165,6 +160,8 @@
             <svg class="ico" aria-hidden="true"><use href="#icon-wa"></use></svg>
             WhatsApp
           </a>
+          <!-- ბმული გვერდის შიგნით: ჰედერის ნავიგაცია მოხსნილია -->
+          <a class="btn btn-ghost" href="#payment">გადახდა</a>
         </div>
 
         <p class="hero-addr">
@@ -215,43 +212,19 @@
     </div>
   </section>
 
-  <section id="contact" class="section">
+  <!--
+    Google-ის შეფასება. კონტაქტის სექცია მოიხსნა, რადგან მისამართი, ტელეფონი, ელფოსტა
+    და WhatsApp ჰეროშივეა და ფუტერშიც წერია. შეფასება იქ არ იმეორებდა, ამიტომ ცალკე დარჩა.
+    ბმულის ბოლოს !12e1 პირდაპირ შეფასების ფორმას ხსნის და არა მხოლოდ ბარათს.
+  -->
+  <section id="review" class="section">
     <div class="wrap">
-      <h2 class="section-title">კონტაქტი</h2>
-      <div class="contact-grid">
-        <div class="card">
-          <h3>მისამართი</h3>
-          <p class="addr"><a href="https://www.google.com/maps/place/?cid=2737741856713212816" target="_blank" rel="noopener">ქალაქი თბილისი<br>ალექსანდრე ყაზბეგის გამზირი #6</a></p>
-          <p><a href="https://www.google.com/maps/place/?cid=2737741856713212816" target="_blank" rel="noopener">რუკაზე ნახვა</a></p>
-        </div>
-        <div class="card">
-          <h3>ტელეფონი და ელფოსტა</h3>
-          <p class="addr">
-            <a href="tel:+995591709931">591 70 99 31</a><br>
-            <a href="mailto:tikarurua@gmail.com?subject=%E1%83%99%E1%83%98%E1%83%97%E1%83%AE%E1%83%95%E1%83%90%20%E1%83%A1%E1%83%90%E1%83%98%E1%83%A2%E1%83%98%E1%83%93%E1%83%90%E1%83%9C%20rurua.ge">tikarurua@gmail.com</a>
-          </p>
-        </div>
-        <div class="card">
-          <h3>WhatsApp</h3>
-          <p>დაწერეთ WhatsApp-ზე. მესიჯს საიტის მითითება თავიდანვე ერთვის, ასე მაშინვე ჩანს, საიდან მოხვდით.</p>
-          <p><a class="btn btn-wa btn-sm" href="https://wa.me/995591709931?text=%E1%83%92%E1%83%90%E1%83%9B%E1%83%90%E1%83%A0%E1%83%AF%E1%83%9D%E1%83%91%E1%83%90%21%20%E1%83%92%E1%83%AC%E1%83%94%E1%83%A0%E1%83%97%20%E1%83%A1%E1%83%90%E1%83%98%E1%83%A2%E1%83%98%E1%83%93%E1%83%90%E1%83%9C%20rurua.ge.%20%E1%83%9B%E1%83%90%E1%83%98%E1%83%9C%E1%83%A2%E1%83%94%E1%83%A0%E1%83%94%E1%83%A1%E1%83%94%E1%83%91%E1%83%A1%20%E1%83%A1%E1%83%90%E1%83%9C%E1%83%9D%E1%83%A2%E1%83%90%E1%83%A0%E1%83%9D%20%E1%83%9B%E1%83%9D%E1%83%9B%E1%83%A1%E1%83%90%E1%83%AE%E1%83%A3%E1%83%A0%E1%83%94%E1%83%91%E1%83%90%3A%20" target="_blank" rel="noopener">
-            <svg class="ico" aria-hidden="true"><use href="#icon-wa"></use></svg>
-            WhatsApp-ზე მოწერა
-          </a></p>
-        </div>
-        <!--
-          Google-ის შეფასების ბარათი. ბმულის ბოლოს !12e1 პირდაპირ შეფასების ფორმას ხსნის
-          და არა მხოლოდ ბარათს. 1s-ის შემდეგ მოცემული წყვილი ბიუროს Google-ის იდენტიფიკატორია.
-        -->
-        <div class="card">
-          <h3>შეფასება Google-ზე</h3>
-          <p>თუ მომსახურებით კმაყოფილი დარჩით, დატოვეთ შეფასება. ეს სხვებს ეხმარება ბიუროს მოძებნაში.</p>
-          <p><a class="btn btn-star btn-sm" href="https://www.google.com/maps/place//data=!4m3!3m2!1s0x404473003c50f1db:0x25fe69b6a81c0390!12e1" target="_blank" rel="noopener">
-            <svg class="ico" aria-hidden="true"><use href="#icon-star"></use></svg>
-            შეფასების დატოვება
-          </a></p>
-        </div>
-      </div>
+      <h2 class="section-title">შეფასება Google-ზე</h2>
+      <p class="section-sub">თუ მომსახურებით კმაყოფილი დარჩით, დატოვეთ შეფასება. ეს სხვებს ეხმარება ბიუროს მოძებნაში.</p>
+      <p><a class="btn btn-star" href="https://www.google.com/maps/place//data=!4m3!3m2!1s0x404473003c50f1db:0x25fe69b6a81c0390!12e1" target="_blank" rel="noopener">
+        <svg class="ico" aria-hidden="true"><use href="#icon-star"></use></svg>
+        შეფასების დატოვება
+      </a></p>
     </div>
   </section>
 
