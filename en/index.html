@@ -116,6 +116,13 @@
     </a>
 
     <div class="head-actions">
+      <!--
+        Two small buttons next to the language switch: the fee page, and an in-page
+        jump to payment. The fee block no longer has its own section, the explanation
+        lives on the calculator page, so the homepage keeps only the link.
+      -->
+      <a class="btn btn-ghost btn-sm" href="fees/">Fees</a>
+      <a class="btn btn-ghost btn-sm" href="#payment">Payment</a>
       <!-- Language switch, each version is its own page -->
       <p class="lang" aria-label="Language">
         <a href="../" lang="ka">ქარ</a>
@@ -156,8 +163,6 @@
             <svg class="ico" aria-hidden="true"><use href="#icon-wa"></use></svg>
             WhatsApp
           </a>
-          <!-- In-page link: the header nav is gone -->
-          <a class="btn btn-ghost" href="#payment">Payment</a>
         </div>
 
 
@@ -207,7 +212,7 @@
 
   <!--
     Google review. The contact section is gone: address, phone, email and WhatsApp all sit
-    in the hero and in the footer. The review was the one card that repeated nothing, so it stays.
+    in the hero. The review was the one card that repeated nothing, so it stays.
     The !12e1 suffix opens the review form itself rather than just the listing.
   -->
   <section id="review" class="section">
@@ -221,34 +226,11 @@
     </div>
   </section>
 
-  <!--
-    The fee block sits at the bottom of the page for now. Payment and contact are read
-    first, price last. If that does not work, it moves back above the payment section.
-  -->
-  <section id="fees" class="section section-alt">
-    <div class="wrap">
-      <h2 class="section-title">What it costs</h2>
-      <p class="section-sub">
-        The calculator uses the rates set by decree No. 507. The same page carries the full
-        list of notarial acts and the decree's own tables.
-      </p>
-      <a class="cta-calc cta-calc-block" href="fees/">
-        <svg class="cta-calc-ico" aria-hidden="true"><use href="#icon-calc"></use></svg>
-        <span class="cta-calc-text">
-          <strong>Calculate the fee</strong>
-          <span>What a notarial act costs</span>
-        </span>
-        <span class="cta-calc-arrow" aria-hidden="true">&rarr;</span>
-      </a>
-    </div>
-  </section>
-
 </main>
 
 <footer class="site-foot">
   <div class="wrap foot-inner">
     <p>Notary Tinatin Rurua &middot; 6 Aleksandre Kazbegi Avenue, Tbilisi</p>
-    <p><a href="mailto:tikarurua@gmail.com">tikarurua@gmail.com</a> &middot; <a href="tel:+995591709931">591 70 99 31</a> &middot; <a href="https://wa.me/995591709931?text=Hello%21%20I%20am%20writing%20from%20your%20website%20rurua.ge.%20I%20would%20like%20to%20ask%20about%20a%20notary%20service%3A%20" target="_blank" rel="noopener">WhatsApp</a></p>
     <!-- Entry in the notary chamber's directory of notary offices -->
     <p class="foot-reg">
       <a href="https://www.notary.ge/geo-3718-sanotaro-biuroebi-filter&amp;region_id=&amp;full_name=%E1%83%97%E1%83%98%E1%83%9C%E1%83%90%E1%83%97%E1%83%98%E1%83%9C+%E1%83%A0%E1%83%A3%E1%83%A0%E1%83%A3%E1%83%90"

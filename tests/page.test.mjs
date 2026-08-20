@@ -78,61 +78,56 @@ CATALOGUE.forEach((s) => s.needs.forEach((n) => catalogueNeeds.add(n)));
 /*
   მთავარი გვერდები.
 
-  issue #20: საზღაურის ბლოკი ჰეროში აღარ უნდა იყოს. ახლა გვერდის ბოლოშია, კონტაქტის
-  შემდეგ, ცალკე სექციაში. პოზიციას ვამოწმებთ და არა მხოლოდ არსებობას, თორემ ჰეროში
-  დაბრუნება შეუმჩნეველი დარჩება.
+  issue #20: საზღაურის ბლოკი ჰეროში აღარ უნდა იყოს. ახლა მთავარ გვერდზე ცალკე სექცია
+  აღარ არსებობს: აღწერა კალკულატორის გვერდზეა, აქ ჰედერში პატარა ღილაკი რჩება.
 
-  ადრე ეს შემოწმება ვიზიტის სექციას ეყრდნობოდა. ვიზიტი აღარ არსებობს, ამიტომ ღუზა
-  კონტაქტია: არარსებულ ატრიბუტზე indexOf -1-ს აბრუნებს და შედარება ყალბად გადიოდა.
+  ისტორია: ეს შემოწმება თავიდან ვიზიტის სექციას ეყრდნობოდა, მერე კონტაქტს, ორივე
+  მოიხსნა. არარსებულ ატრიბუტზე indexOf -1-ს აბრუნებს, ანუ პოზიციის შედარება ჩუმად
+  გადის. ამიტომ აქ არსებობა ცალკე შემოწმდება და არა მხოლოდ რიგი.
 */
 [["index.html", "tarifi/"], ["en/index.html", "fees/"]].forEach(([page, href]) => {
   const html = read(page);
 
-  const paymentAt = html.indexOf('id="payment"');
-  const ctaAt = html.indexOf('class="cta-calc');
-  const feesAt = html.indexOf('id="fees"');
-
-  check(`${page}: საზღაურის სექცია არსებობს`, feesAt > -1, true);
-  check(`${page}: გადახდის სექცია არსებობს`, paymentAt > -1, true);
-  check(`${page}: საზღაური გადახდის შემდეგაა`, feesAt > paymentAt, true);
-  check(`${page}: ბლოკი საზღაურის სექციაშია`, ctaAt > feesAt, true);
-
-  // ბოლო სექცია უნდა იყოს: feesAt id-ზე დგას, ანუ მის შემდეგ <section> აღარ უნდა იყოს
-  check(`${page}: საზღაური გვერდის ბოლო სექციაა`, html.indexOf("<section", feesAt), -1);
+  const head = html.slice(html.indexOf('class="head-actions"'), html.indexOf("</header>"));
+  const heroAt = html.indexOf('id="hero"');
+  const hero = html.slice(heroAt, html.indexOf("</section>", heroAt));
+  const foot = html.slice(html.indexOf("<footer"), html.indexOf("</footer>"));
 
   /*
-    ვიზიტისა და კონტაქტის სექციები მოხსნილია. სექციასაც ვამოწმებთ და ღუზასაც: ცარიელი
-    indexOf -1-ს აბრუნებს, ამიტომ პოზიციის შედარებას აქ აზრი არ აქვს, არსებობას ვკითხავთ.
+    მოხსნილი სექციები. სამივე ერთ დროს არსებობდა, ახლა გვერდი ჰერო, გადახდა და
+    შეფასებაა. ღუზასაც ვამოწმებთ, თორემ ბმული სექციის გარეშე დარჩება.
   */
-  ["visit", "contact"].forEach((id) => {
+  ["visit", "contact", "fees"].forEach((id) => {
     check(`${page}: ${id} სექცია აღარ არის`, html.includes(`id="${id}"`), false);
     check(`${page}: ${id}-ზე ბმული აღარ არის`, html.includes(`href="#${id}"`), false);
   });
 
-  // ჰედერის ნავიგაცია მოხსნილია, გვერდზე გადაადგილება ჰეროდან ხდება
+  check(`${page}: საზღაურის ბლოკი აღარ არის`, html.includes("cta-calc"), false);
+  check(`${page}: გადახდის სექცია არსებობს`, html.includes('id="payment"'), true);
+  check(`${page}: შეფასების სექცია არსებობს`, html.includes('id="review"'), true);
+  check(`${page}: შეფასების ბმული`, html.includes("!12e1"), true);
+
+  // ჰედერში ორი პატარა ღილაკი: საზღაურის გვერდი და გადახდაზე გადასვლა
+  check(`${page}: ჰედერში ბმული საზღაურზე`, head.includes(`href="${href}"`), true);
+  check(`${page}: ჰედერში ბმული გადახდაზე`, head.includes('href="#payment"'), true);
   check(`${page}: ჰედერში ნავიგაცია აღარ არის`, html.includes('class="head-nav"'), false);
+  check(`${page}: ჰედერში ჯავშნა აღარ არის`, head.includes("cal.com"), false);
 
   /*
-    კონტაქტი ჰეროში რჩება: სწორედ ამიტომ მოიხსნა კონტაქტის სექცია, ანუ ჰეროდან რომელიმეს
-    გაქრობა უკვე ინფორმაციის დაკარგვა იქნება და არა დუბლიკატის მოშორება.
+    კონტაქტი მხოლოდ ჰეროშია: კონტაქტის სექციაც და ფუტერის ხაზიც სწორედ იმიტომ მოიხსნა,
+    რომ იმეორებდა. ანუ ჰეროდან რომელიმეს გაქრობა ინფორმაციის დაკარგვაა.
   */
-  const heroAt = html.indexOf('id="hero"');
-  const hero = html.slice(heroAt, html.indexOf("</section>", heroAt));
-
   check(`${page}: ტელეფონი ჰეროშია`, hero.includes("tel:+995591709931"), true);
   check(`${page}: ელფოსტა ჰეროშია`, hero.includes("mailto:tikarurua@gmail.com"), true);
   check(`${page}: WhatsApp ჰეროშია`, hero.includes("wa.me/995591709931"), true);
   check(`${page}: მისამართი ჰეროშია`, hero.includes("maps/place/?cid=2737741856713212816"), true);
-  check(`${page}: გადახდაზე ბმული ჰეროშია`, hero.includes('href="#payment"'), true);
+  check(`${page}: ჯავშნა ჰეროშია`, hero.includes("cal.com/rurua/30"), true);
+  check(`${page}: გადახდის ღილაკი ჰეროში აღარ არის`, hero.includes('href="#payment"'), false);
 
-  // Google-ის შეფასება კონტაქტის სექციიდან ცალკე სექციად გადავიდა
-  check(`${page}: შეფასების სექცია არსებობს`, html.includes('id="review"'), true);
-  check(`${page}: შეფასების ბმული`, html.includes("!12e1"), true);
-  check(`${page}: ბმული საზღაურის გვერდზე`, html.includes(`class="cta-calc cta-calc-block" href="${href}"`), true);
-
-  // ერთადერთი ბლოკი უნდა იყოს, ჰეროს დუბლიკატი არ დარჩენილიყო.
-  // მხოლოდ <a>-ს ვითვლით: შიგნით cta-calc-ico, -text და -arrow კლასებიცაა.
-  check(`${page}: ერთი ბლოკი`, (html.match(/<a class="cta-calc/g) || []).length, 1);
+  // ფუტერში კონტაქტი აღარ წერია, სახელი და მისამართი რჩება
+  check(`${page}: ფუტერში ელფოსტა აღარ არის`, foot.includes("mailto:"), false);
+  check(`${page}: ფუტერში ტელეფონი აღარ არის`, foot.includes("tel:"), false);
+  check(`${page}: ფუტერში მისამართი რჩება`, /ყაზბეგის|Kazbegi/.test(foot), true);
 });
 
 /*
