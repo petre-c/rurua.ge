@@ -78,20 +78,32 @@ CATALOGUE.forEach((s) => s.needs.forEach((n) => catalogueNeeds.add(n)));
 /*
   მთავარი გვერდები.
 
-  issue #20: საზღაურის ბლოკი ჰეროში აღარ უნდა იყოს, გვერდის ქვედა ნაწილში, ცალკე
-  სექციაში. პოზიციას ვამოწმებთ და არა მხოლოდ არსებობას, თორემ ჰეროში დაბრუნება
-  შეუმჩნეველი დარჩება.
+  issue #20: საზღაურის ბლოკი ჰეროში აღარ უნდა იყოს. ახლა გვერდის ბოლოშია, კონტაქტის
+  შემდეგ, ცალკე სექციაში. პოზიციას ვამოწმებთ და არა მხოლოდ არსებობას, თორემ ჰეროში
+  დაბრუნება შეუმჩნეველი დარჩება.
+
+  ადრე ეს შემოწმება ვიზიტის სექციას ეყრდნობოდა. ვიზიტი აღარ არსებობს, ამიტომ ღუზა
+  კონტაქტია: არარსებულ ატრიბუტზე indexOf -1-ს აბრუნებს და შედარება ყალბად გადიოდა.
 */
 [["index.html", "tarifi/"], ["en/index.html", "fees/"]].forEach(([page, href]) => {
   const html = read(page);
 
-  const visitAt = html.indexOf('id="visit"');
+  const contactAt = html.indexOf('id="contact"');
   const ctaAt = html.indexOf('class="cta-calc');
   const feesAt = html.indexOf('id="fees"');
 
   check(`${page}: საზღაურის სექცია არსებობს`, feesAt > -1, true);
-  check(`${page}: ბლოკი ჰეროს ქვემოთაა`, ctaAt > visitAt, true);
+  check(`${page}: კონტაქტის სექცია არსებობს`, contactAt > -1, true);
+  check(`${page}: ბლოკი გვერდის ბოლოშია, კონტაქტის შემდეგ`, feesAt > contactAt, true);
   check(`${page}: ბლოკი საზღაურის სექციაშია`, ctaAt > feesAt, true);
+
+  // ვიზიტის სექცია მოხსნილია, მკვდარი ღუზა არსად უნდა დარჩეს
+  check(`${page}: ვიზიტის სექცია აღარ არის`, html.includes('id="visit"'), false);
+  check(`${page}: ვიზიტზე ბმული აღარ არის`, html.includes('href="#visit"'), false);
+
+  // ელფოსტა ჰეროშია, ტელეფონის გვერდით
+  const heroEnd = html.indexOf('</section>', html.indexOf('class="hero"'));
+  check(`${page}: ელფოსტა ჰეროშია`, html.lastIndexOf('mailto:tikarurua@gmail.com', heroEnd) > -1, true);
   check(`${page}: ბმული საზღაურის გვერდზე`, html.includes(`class="cta-calc cta-calc-block" href="${href}"`), true);
 
   // ერთადერთი ბლოკი უნდა იყოს, ჰეროს დუბლიკატი არ დარჩენილიყო.
@@ -112,6 +124,30 @@ CATALOGUE.forEach((s) => s.needs.forEach((n) => catalogueNeeds.add(n)));
 
   const rows = (html.slice(from, to).match(/<tr>/g) || []).length;
   check(`${page}: თექვსმეტი მოქმედება პლუს სათაური`, rows, 17);
+});
+
+/*
+  ქვეგვერდების ნავიგაცია. ../#visit და ../#services მთავარ გვერდზე აღარ არსებობს,
+  ამიტომ ბმულებმა ცოცხალ სექციებზე უნდა მიუთითოს.
+*/
+["tarifi/index.html", "en/fees/index.html"].forEach((page) => {
+  const html = read(page);
+  check(`${page}: მკვდარი ../#visit ბმული`, html.includes('href="../#visit"'), false);
+  check(`${page}: მკვდარი ../#services ბმული`, html.includes('href="../#services"'), false);
+  check(`${page}: ბმული გადახდაზე`, html.includes('href="../#payment"'), true);
+});
+
+/*
+  ჯავშნის ღილაკი ჰედერიდან მოხსნილია. ჯავშნა მთავარ გვერდზე ჰეროშია, საზღაურის
+  გვერდზე კი ტექსტის ბოლოს. ამიტომ ჰედერში cal.com არ უნდა იყოს, გვერდზე კი უნდა დარჩეს:
+  ასე შემთხვევითი დაბრუნებაც და სრული გაქრობაც ორივე დაფიქსირდება.
+*/
+["index.html", "en/index.html", "tarifi/index.html", "en/fees/index.html"].forEach((page) => {
+  const html = read(page);
+  const head = html.slice(html.indexOf('class="head-actions"'), html.indexOf("</header>"));
+
+  check(`${page}: ჰედერში ჯავშნა აღარ არის`, head.includes("cal.com"), false);
+  check(`${page}: ჯავშნა გვერდზე რჩება`, html.includes('class="btn btn-primary btn-cal"'), true);
 });
 
 console.log(`checks passed: ${passed}`);

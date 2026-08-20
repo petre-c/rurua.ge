@@ -101,9 +101,12 @@
   <symbol id="icon-pin" viewBox="0 0 24 24">
     <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.05 6.13 12.28 6.39 12.58a.8.8 0 0 0 1.22 0C12.87 21.28 19 14.05 19 9a7 7 0 0 0-7-7Zm0 2a5 5 0 0 1 5 5c0 3.3-3.4 8.28-5 10.28C10.4 17.28 7 12.3 7 9a5 5 0 0 1 5-5Zm0 2.5A2.5 2.5 0 1 0 12 11.5a2.5 2.5 0 0 0 0-5Z"/>
   </symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1.6 2L12 12.3 19.4 7H4.6ZM4 8.9V17h16V8.9l-8 5.7-8-5.7Z"/>
+  </symbol>
 </svg>
 
-<a class="skip" href="#visit">გადასვლა ვიზიტის ინფორმაციაზე</a>
+<a class="skip" href="#contact">გადასვლა კონტაქტზე</a>
 
 <header class="site-head">
   <div class="wrap head-inner">
@@ -116,9 +119,8 @@
     </a>
 
     <nav class="head-nav">
-      <a href="tarifi/">საზღაური</a>
-      <a href="#visit">ვიზიტი</a>
       <a href="#contact">კონტაქტი</a>
+      <a href="tarifi/">საზღაური</a>
     </nav>
 
     <div class="head-actions">
@@ -127,11 +129,6 @@
         <span aria-current="true">ქარ</span>
         <a href="en/" lang="en">Eng</a>
       </p>
-      <!-- ჯავშნა ჰედერშია, რომ ყველა გვერდის თავში ხელმისაწვდომი იყოს -->
-      <a class="btn btn-primary btn-sm btn-cal" href="https://cal.com/rurua/30" target="_blank" rel="noopener" aria-label="ვიზიტის დაჯავშნა">
-        <svg class="ico" aria-hidden="true"><use href="#icon-booking"></use></svg>
-        <span class="btn-label">დაჯავშნა</span>
-      </a>
       <!-- თემის გადამრთველი: სისტემური, ნათელი, ბნელი -->
       <button id="theme-toggle" class="theme-btn" type="button" title="თემა">
         <span class="theme-icon" aria-hidden="true"></span>
@@ -159,6 +156,11 @@
             Teams-ში შეხვედრა
           </a>
           <a class="btn btn-ghost" href="tel:+995591709931">591 70 99 31</a>
+          <!-- ელფოსტა წინასწარ შევსებული თემით, რომ წერილი მაშინვე იცნობებოდეს -->
+          <a class="btn btn-ghost btn-mail" href="mailto:tikarurua@gmail.com?subject=%E1%83%99%E1%83%98%E1%83%97%E1%83%AE%E1%83%95%E1%83%90%20%E1%83%A1%E1%83%90%E1%83%98%E1%83%A2%E1%83%98%E1%83%93%E1%83%90%E1%83%9C%20rurua.ge">
+            <svg class="ico" aria-hidden="true"><use href="#icon-mail"></use></svg>
+            tikarurua@gmail.com
+          </a>
           <a class="btn btn-wa" href="https://wa.me/995591709931?text=%E1%83%92%E1%83%90%E1%83%9B%E1%83%90%E1%83%A0%E1%83%AF%E1%83%9D%E1%83%91%E1%83%90%21%20%E1%83%92%E1%83%AC%E1%83%94%E1%83%A0%E1%83%97%20%E1%83%A1%E1%83%90%E1%83%98%E1%83%A2%E1%83%98%E1%83%93%E1%83%90%E1%83%9C%20rurua.ge.%20%E1%83%9B%E1%83%90%E1%83%98%E1%83%9C%E1%83%A2%E1%83%94%E1%83%A0%E1%83%94%E1%83%A1%E1%83%94%E1%83%91%E1%83%A1%20%E1%83%A1%E1%83%90%E1%83%9C%E1%83%9D%E1%83%A2%E1%83%90%E1%83%A0%E1%83%9D%20%E1%83%9B%E1%83%9D%E1%83%9B%E1%83%A1%E1%83%90%E1%83%AE%E1%83%A3%E1%83%A0%E1%83%94%E1%83%91%E1%83%90%3A%20" target="_blank" rel="noopener">
             <svg class="ico" aria-hidden="true"><use href="#icon-wa"></use></svg>
             WhatsApp
@@ -188,80 +190,9 @@
   </section>
 
 
-  <section id="visit" class="section section-alt">
-    <div class="wrap two-col">
-      <div>
-        <h2 class="section-title">ვიზიტისთვის მოსამზადებელი</h2>
-        <ul class="ticks">
-          <li>პირადობის მოწმობა ან პასპორტი, გარიგების ყველა მხარისთვის.</li>
-          <li>დოკუმენტების ორიგინალები, ასლების და თარგმანების ჩათვლით.</li>
-          <li>იურიდიული პირის შემთხვევაში, ამონაწერი მეწარმეთა და არასამეწარმეო იურიდიულ პირთა რეესტრიდან.</li>
-          <li>უძრავ ქონებაზე გარიგებისას, ამონაწერი საჯარო რეესტრიდან.</li>
-          <li>თუ ხელს წარმომადგენელი აწერს, მოქმედი მინდობილობა.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h2>ვიზიტის შეთანხმება</h2>
-        <p>
-          აირჩიეთ თავისუფალი დრო კალენდარში, ან დაგვირეკეთ და ტელეფონით შევთანხმდებით.
-          ორივე შემთხვევაში წინასწარ დაზუსტდება, რა დოკუმენტები დაგჭირდებათ.
-        </p>
-        <p><a class="btn btn-primary btn-cal btn-sm" href="https://cal.com/rurua/30" target="_blank" rel="noopener">
-          <svg class="ico" aria-hidden="true"><use href="#icon-booking"></use></svg>
-          ვიზიტის დაჯავშნა
-        </a></p>
-        <p class="addr">
-          <a href="tel:+995591709931">591 70 99 31</a>
-        </p>
-        <!-- Teams-ის ღილაკი გვერდის თავშია, აქ მხოლოდ პირობა რჩება -->
-        <p class="visit-online">
-          თუ პირადად მოსვლა არ გამოგდით, შეხვედრა ონლაინაც შეიძლება. დრო წინასწარ უნდა
-          შეთანხმდეს, შემდეგ გვერდის თავში მოცემული Teams-ის ბმულით შემოდით.
-        </p>
-        <p class="muted-note">მომსახურება ხელმისაწვდომია ქართულ და ინგლისურ ენაზე.</p>
-      </div>
-    </div>
-  </section>
-
-
-  <!--
-    გადახდის ბლოკი. თანხის ველი ორივე ბარათზე მოქმედებს: კოპირებულ ტექსტში ჯდება და
-    TBC-ის ბმულს ემატება. BOG-ს ბმული არ აქვს, რადგან IBAN-ით გახსნის სქემა არ არსებობს.
-  -->
-
-  <!--
-    საზღაურის ბლოკი ჰეროდან აქ ჩამოვიდა. ჰეროში ჯავშნა და კონტაქტი რჩება, ფასი კი
-    ვიზიტისა და გადახდის შუაშია: კლიენტი პირველად კითხულობს რა უნდა მოიტანოს, მერე
-    რა ღირს, მერე როგორ გადაიხადოს.
-  -->
-  <section id="fees" class="section">
-    <div class="wrap">
-      <h2 class="section-title">რა ღირს</h2>
-      <p class="section-sub">
-        კალკულატორი დადგენილება №507-ის განაკვეთებით ითვლის. იმავე გვერდზეა მოქმედებების
-        სრული სია და დადგენილების ცხრილები.
-      </p>
-      <a class="cta-calc cta-calc-block" href="tarifi/">
-        <svg class="cta-calc-ico" aria-hidden="true"><use href="#icon-calc"></use></svg>
-        <span class="cta-calc-text">
-          <strong>საზღაურის გამოთვლა</strong>
-          <span>სანოტარო მოქმედების ღირებულება</span>
-        </span>
-        <span class="cta-calc-arrow" aria-hidden="true">&rarr;</span>
-      </a>
-    </div>
-  </section>
-
   <section id="payment" class="section section-alt" data-pay>
     <div class="wrap">
       <h2 class="section-title">გადახდა</h2>
-      <p class="section-sub">საზღაური ბანკის ანგარიშზე გადაირიცხება. მიმღები: თინათინ რურუა.</p>
-
-      <label class="pay-amount">
-        <span>თანხა, ₾ (სურვილისამებრ)</span>
-        <input type="number" min="0" step="0.01" placeholder="0.00" data-pay-amount>
-      </label>
-
       <div class="pay-grid">
         <div class="card pay-card" data-pay-iban="GE98TB7018445063300002" data-pay-holder="თინათინ რურუა">
           <h3>თიბისი ბანკი</h3>
@@ -281,11 +212,6 @@
           <p class="pay-hint">ნომერი დააკოპირეთ და ბანკის აპლიკაციაში ჩასვით.</p>
         </div>
       </div>
-
-      <p class="pay-note">
-        დანიშნულებაში მიუთითეთ, რის გადახდაა. თანხა ბანკის აპლიკაციაში მაინც გადაამოწმეთ,
-        სანამ დაადასტურებთ.
-      </p>
     </div>
   </section>
 
@@ -326,6 +252,28 @@
           </a></p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!--
+    საზღაურის ბლოკი დროებით გვერდის ბოლოშია. ჯერ გადახდა და კონტაქტი იკითხება,
+    ფასი ბოლოში რჩება. თუ ეს არ დაჯდა, ბლოკი გადახდის წინ ბრუნდება.
+  -->
+  <section id="fees" class="section section-alt">
+    <div class="wrap">
+      <h2 class="section-title">რა ღირს</h2>
+      <p class="section-sub">
+        კალკულატორი დადგენილება №507-ის განაკვეთებით ითვლის. იმავე გვერდზეა მოქმედებების
+        სრული სია და დადგენილების ცხრილები.
+      </p>
+      <a class="cta-calc cta-calc-block" href="tarifi/">
+        <svg class="cta-calc-ico" aria-hidden="true"><use href="#icon-calc"></use></svg>
+        <span class="cta-calc-text">
+          <strong>საზღაურის გამოთვლა</strong>
+          <span>სანოტარო მოქმედების ღირებულება</span>
+        </span>
+        <span class="cta-calc-arrow" aria-hidden="true">&rarr;</span>
+      </a>
     </div>
   </section>
 

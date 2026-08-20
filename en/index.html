@@ -98,9 +98,12 @@
   <symbol id="icon-pin" viewBox="0 0 24 24">
     <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.05 6.13 12.28 6.39 12.58a.8.8 0 0 0 1.22 0C12.87 21.28 19 14.05 19 9a7 7 0 0 0-7-7Zm0 2a5 5 0 0 1 5 5c0 3.3-3.4 8.28-5 10.28C10.4 17.28 7 12.3 7 9a5 5 0 0 1 5-5Zm0 2.5A2.5 2.5 0 1 0 12 11.5a2.5 2.5 0 0 0 0-5Z"/>
   </symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1.6 2L12 12.3 19.4 7H4.6ZM4 8.9V17h16V8.9l-8 5.7-8-5.7Z"/>
+  </symbol>
 </svg>
 
-<a class="skip" href="#visit">Skip to visit information</a>
+<a class="skip" href="#contact">Skip to contact details</a>
 
 <header class="site-head">
   <div class="wrap head-inner">
@@ -113,9 +116,8 @@
     </a>
 
     <nav class="head-nav">
-      <a href="fees/">Fees</a>
-      <a href="#visit">Your visit</a>
       <a href="#contact">Contact</a>
+      <a href="fees/">Fees</a>
     </nav>
 
     <div class="head-actions">
@@ -124,11 +126,6 @@
         <a href="../" lang="ka">ქარ</a>
         <span aria-current="true">Eng</span>
       </p>
-      <!-- ჯავშნა ჰედერშია, რომ ყველა გვერდის თავში ხელმისაწვდომი იყოს -->
-      <a class="btn btn-primary btn-sm btn-cal" href="https://cal.com/rurua/30" target="_blank" rel="noopener" aria-label="Book a visit">
-        <svg class="ico" aria-hidden="true"><use href="#icon-booking"></use></svg>
-        <span class="btn-label">Book</span>
-      </a>
       <button id="theme-toggle" class="theme-btn" type="button" title="Theme">
         <span class="theme-icon" aria-hidden="true"></span>
         <span class="sr-only">Switch theme</span>
@@ -155,6 +152,11 @@
             Meet on Teams
           </a>
           <a class="btn btn-ghost" href="tel:+995591709931">591 70 99 31</a>
+          <!-- Email with the subject prefilled, so an enquiry is recognisable on arrival -->
+          <a class="btn btn-ghost btn-mail" href="mailto:tikarurua@gmail.com?subject=Enquiry%20from%20rurua.ge">
+            <svg class="ico" aria-hidden="true"><use href="#icon-mail"></use></svg>
+            tikarurua@gmail.com
+          </a>
           <a class="btn btn-wa" href="https://wa.me/995591709931?text=Hello%21%20I%20am%20writing%20from%20your%20website%20rurua.ge.%20I%20would%20like%20to%20ask%20about%20a%20notary%20service%3A%20" target="_blank" rel="noopener">
             <svg class="ico" aria-hidden="true"><use href="#icon-wa"></use></svg>
             WhatsApp
@@ -181,80 +183,9 @@
   </section>
 
 
-  <section id="visit" class="section section-alt">
-    <div class="wrap two-col">
-      <div>
-        <h2 class="section-title">What to bring</h2>
-        <ul class="ticks">
-          <li>An ID card or passport for every party to the transaction.</li>
-          <li>Original documents, including copies and translations.</li>
-          <li>For a company, an extract from the registry of entrepreneurs and non-commercial legal entities.</li>
-          <li>For a real estate transaction, an extract from the public registry.</li>
-          <li>A valid power of attorney if a representative signs on someone's behalf.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h2>Arranging a visit</h2>
-        <p>
-          Pick a free slot in the calendar, or call and agree a time by phone.
-          Either way the list of documents you need is confirmed in advance.
-        </p>
-        <p><a class="btn btn-primary btn-cal btn-sm" href="https://cal.com/rurua/30" target="_blank" rel="noopener">
-          <svg class="ico" aria-hidden="true"><use href="#icon-booking"></use></svg>
-          Book a visit
-        </a></p>
-        <p class="addr">
-          <a href="tel:+995591709931">+995 591 70 99 31</a>
-        </p>
-        <!-- The Teams button sits at the top of the page, only the condition stays here -->
-        <p class="visit-online">
-          If coming in person does not work, the meeting can be held online. A time is agreed
-          first, then you join through the Teams link at the top of the page.
-        </p>
-        <p class="muted-note">The office works in Georgian and English.</p>
-      </div>
-    </div>
-  </section>
-
-
-  <!--
-    Payment block. The amount field feeds both cards: it goes into the copied text and
-    onto the TBC link. BOG has no link, because there is no open-by-IBAN scheme for it.
-  -->
-
-  <!--
-    The fee block moved down from the hero. The hero keeps booking and contact; price sits
-    between the visit and the payment section, following what a client reads in order:
-    what to bring, what it costs, how to pay.
-  -->
-  <section id="fees" class="section">
-    <div class="wrap">
-      <h2 class="section-title">What it costs</h2>
-      <p class="section-sub">
-        The calculator uses the rates set by decree No. 507. The same page carries the full
-        list of notarial acts and the decree's own tables.
-      </p>
-      <a class="cta-calc cta-calc-block" href="fees/">
-        <svg class="cta-calc-ico" aria-hidden="true"><use href="#icon-calc"></use></svg>
-        <span class="cta-calc-text">
-          <strong>Calculate the fee</strong>
-          <span>What a notarial act costs</span>
-        </span>
-        <span class="cta-calc-arrow" aria-hidden="true">&rarr;</span>
-      </a>
-    </div>
-  </section>
-
   <section id="payment" class="section section-alt" data-pay>
     <div class="wrap">
       <h2 class="section-title">Payment</h2>
-      <p class="section-sub">Fees are paid by bank transfer. Beneficiary: Tinatin Rurua.</p>
-
-      <label class="pay-amount">
-        <span>Amount, ₾ (optional)</span>
-        <input type="number" min="0" step="0.01" placeholder="0.00" data-pay-amount>
-      </label>
-
       <div class="pay-grid">
         <div class="card pay-card" data-pay-iban="GE98TB7018445063300002" data-pay-holder="Tinatin Rurua">
           <h3>TBC Bank</h3>
@@ -274,11 +205,6 @@
           <p class="pay-hint">Copy the number and paste it into your banking app.</p>
         </div>
       </div>
-
-      <p class="pay-note">
-        State what the payment is for in the reference field. Check the amount in your banking
-        app before confirming.
-      </p>
     </div>
   </section>
 
@@ -319,6 +245,28 @@
           </a></p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!--
+    The fee block sits at the bottom of the page for now. Payment and contact are read
+    first, price last. If that does not work, it moves back above the payment section.
+  -->
+  <section id="fees" class="section section-alt">
+    <div class="wrap">
+      <h2 class="section-title">What it costs</h2>
+      <p class="section-sub">
+        The calculator uses the rates set by decree No. 507. The same page carries the full
+        list of notarial acts and the decree's own tables.
+      </p>
+      <a class="cta-calc cta-calc-block" href="fees/">
+        <svg class="cta-calc-ico" aria-hidden="true"><use href="#icon-calc"></use></svg>
+        <span class="cta-calc-text">
+          <strong>Calculate the fee</strong>
+          <span>What a notarial act costs</span>
+        </span>
+        <span class="cta-calc-arrow" aria-hidden="true">&rarr;</span>
+      </a>
     </div>
   </section>
 
