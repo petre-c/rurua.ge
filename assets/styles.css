@@ -559,12 +559,13 @@ a:hover { text-decoration: underline; }
 .wa-float {
   position: fixed; right: 20px; bottom: 20px; z-index: 20;
   display: inline-flex; align-items: center; justify-content: center;
-  width: 54px; height: 54px; border-radius: 50%;
+  width: 62px; height: 62px; border-radius: 50%;
   background: var(--wa); color: #fff;
   box-shadow: var(--shadow);
 }
 .wa-float:hover { filter: brightness(1.06); }
-.wa-float svg { width: 27px; height: 27px; }
+/* ლოგო შესამჩნევად დიდია, წრის დიამეტრის დაახლოებით ნახევარზე მეტი */
+.wa-float svg { width: 36px; height: 36px; }
 
 /* ---------- მობილური ---------- */
 

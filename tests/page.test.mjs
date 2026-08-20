@@ -140,6 +140,7 @@ CATALOGUE.forEach((s) => s.needs.forEach((n) => catalogueNeeds.add(n)));
   check(`${page}: ფუტერში ნომერი`, foot.includes("tel:+995591709931"), true);
   check(`${page}: ფუტერში ელფოსტა`, foot.includes("mailto:tikarurua@gmail.com"), true);
   check(`${page}: ფუტერში მისამართი რჩება`, /ყაზბეგის|Kazbegi/.test(foot), true);
+  check(`${page}: ფუტერის მისამართი რუკის ბმულია`, foot.includes("maps/place/?cid=2737741856713212816"), true);
 });
 
 /*
