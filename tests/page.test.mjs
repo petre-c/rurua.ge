@@ -85,7 +85,8 @@ CATALOGUE.forEach((s) => s.needs.forEach((n) => catalogueNeeds.add(n)));
   მოიხსნა. არარსებულ ატრიბუტზე indexOf -1-ს აბრუნებს, ანუ პოზიციის შედარება ჩუმად
   გადის. ამიტომ აქ არსებობა ცალკე შემოწმდება და არა მხოლოდ რიგი.
 */
-[["index.html", "tarifi/"], ["en/index.html", "fees/"]].forEach(([page, href]) => {
+[["index.html", "tarifi/", "საბანკო რეკვიზიტები"],
+ ["en/index.html", "fees/", "Bank details"]].forEach(([page, href, payTitle]) => {
   const html = read(page);
 
   const head = html.slice(html.indexOf("<header"), html.indexOf("</header>"));
@@ -103,7 +104,8 @@ CATALOGUE.forEach((s) => s.needs.forEach((n) => catalogueNeeds.add(n)));
   });
 
   check(`${page}: საზღაურის ბლოკი აღარ არის`, html.includes("cta-calc"), false);
-  check(`${page}: გადახდის სექცია არსებობს`, html.includes('id="payment"'), true);
+  check(`${page}: საბანკო რეკვიზიტების სექცია არსებობს`, html.includes('id="payment"'), true);
+  check(`${page}: სექციის სათაური`, html.includes(`<h2 class="section-title">${payTitle}</h2>`), true);
   check(`${page}: შეფასების სექცია არსებობს`, html.includes('id="review"'), true);
   check(`${page}: შეფასების ბმული`, html.includes("!12e1"), true);
 
@@ -112,7 +114,7 @@ CATALOGUE.forEach((s) => s.needs.forEach((n) => catalogueNeeds.add(n)));
     კონტაქტი ჰეროშია ხატულებით, ტექსტი კი ფუტერში.
   */
   check(`${page}: ჰედერში ნავიგაციაა`, head.includes('class="head-nav"'), true);
-  check(`${page}: ჰედერში ბმული გადახდაზე`, head.includes('href="#payment"'), true);
+  check(`${page}: ჰედერში ბმული გადახდაზე აღარ არის`, head.includes('href="#payment"'), false);
   check(`${page}: ჰედერში ღილაკი არ არის`, head.includes('class="btn'), false);
   check(`${page}: ჰედერში ტელეფონის ხატულა`, head.includes("#icon-phone"), true);
   check(`${page}: ჰედერში ელფოსტის ხატულა`, head.includes("#icon-mail"), true);
@@ -167,7 +169,7 @@ CATALOGUE.forEach((s) => s.needs.forEach((n) => catalogueNeeds.add(n)));
   ["visit", "services", "contact"].forEach((id) => {
     check(`${page}: მკვდარი ../#${id} ბმული`, html.includes(`href="../#${id}"`), false);
   });
-  check(`${page}: ბმული გადახდაზე`, html.includes('href="../#payment"'), true);
+  check(`${page}: ბმული საბანკო რეკვიზიტებზე`, html.includes('href="../#payment"'), true);
 });
 
 /*
