@@ -101,6 +101,9 @@
   <symbol id="icon-pin" viewBox="0 0 24 24">
     <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.05 6.13 12.28 6.39 12.58a.8.8 0 0 0 1.22 0C12.87 21.28 19 14.05 19 9a7 7 0 0 0-7-7Zm0 2a5 5 0 0 1 5 5c0 3.3-3.4 8.28-5 10.28C10.4 17.28 7 12.3 7 9a5 5 0 0 1 5-5Zm0 2.5A2.5 2.5 0 1 0 12 11.5a2.5 2.5 0 0 0 0-5Z"/>
   </symbol>
+  <symbol id="icon-phone" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z"/>
+  </symbol>
   <symbol id="icon-mail" viewBox="0 0 24 24">
     <path fill="currentColor" d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1.6 2L12 12.3 19.4 7H4.6ZM4 8.9V17h16V8.9l-8 5.7-8-5.7Z"/>
   </symbol>
@@ -118,9 +121,22 @@
       </span>
     </a>
 
+    <!--
+      ჰედერი ნავიგაციაა და არა ღილაკების რიგი: ტელეფონისა და ელფოსტის ხატულები
+      უჩარჩოოდ, ბმულის ფერით, პლუს ტექსტური ბმული გადახდაზე. თავად ნომერი და
+      ელფოსტა ტექსტად ფუტერშია, ჰეროში კი მხოლოდ ჯავშანი და შეხვედრა რჩება.
+    -->
+    <nav class="head-nav">
+      <a class="nav-icon" href="tel:+995591709931" aria-label="დარეკვა: 591 70 99 31" title="591 70 99 31">
+        <svg class="ico" aria-hidden="true"><use href="#icon-phone"></use></svg>
+      </a>
+      <a class="nav-icon" href="mailto:tikarurua@gmail.com?subject=%E1%83%99%E1%83%98%E1%83%97%E1%83%AE%E1%83%95%E1%83%90%20%E1%83%A1%E1%83%90%E1%83%98%E1%83%A2%E1%83%98%E1%83%93%E1%83%90%E1%83%9C%20rurua.ge" aria-label="ელფოსტა: tikarurua@gmail.com" title="tikarurua@gmail.com">
+        <svg class="ico" aria-hidden="true"><use href="#icon-mail"></use></svg>
+      </a>
+      <a href="#payment">გადახდა</a>
+    </nav>
+
     <div class="head-actions">
-      <!-- გვერდის შიგნით გადახდაზე გადასვლა, ენის გადამრთველთან -->
-      <a class="btn btn-ghost btn-sm" href="#payment">გადახდა</a>
       <!-- ენის გადამრთველი: ორივე ვერსია ცალკე გვერდია -->
       <p class="lang" aria-label="ენა">
         <span aria-current="true">ქარ</span>
@@ -152,23 +168,14 @@
             <svg class="ico" aria-hidden="true"><use href="#icon-video"></use></svg>
             Teams-ში შეხვედრა
           </a>
-          <a class="btn btn-ghost" href="tel:+995591709931">591 70 99 31</a>
-          <!-- ელფოსტა წინასწარ შევსებული თემით, რომ წერილი მაშინვე იცნობებოდეს -->
-          <a class="btn btn-ghost btn-mail" href="mailto:tikarurua@gmail.com?subject=%E1%83%99%E1%83%98%E1%83%97%E1%83%AE%E1%83%95%E1%83%90%20%E1%83%A1%E1%83%90%E1%83%98%E1%83%A2%E1%83%98%E1%83%93%E1%83%90%E1%83%9C%20rurua.ge">
-            <svg class="ico" aria-hidden="true"><use href="#icon-mail"></use></svg>
-            tikarurua@gmail.com
-          </a>
-          <a class="btn btn-wa" href="https://wa.me/995591709931?text=%E1%83%92%E1%83%90%E1%83%9B%E1%83%90%E1%83%A0%E1%83%AF%E1%83%9D%E1%83%91%E1%83%90%21%20%E1%83%92%E1%83%AC%E1%83%94%E1%83%A0%E1%83%97%20%E1%83%A1%E1%83%90%E1%83%98%E1%83%A2%E1%83%98%E1%83%93%E1%83%90%E1%83%9C%20rurua.ge.%20%E1%83%9B%E1%83%90%E1%83%98%E1%83%9C%E1%83%A2%E1%83%94%E1%83%A0%E1%83%94%E1%83%A1%E1%83%94%E1%83%91%E1%83%A1%20%E1%83%A1%E1%83%90%E1%83%9C%E1%83%9D%E1%83%A2%E1%83%90%E1%83%A0%E1%83%9D%20%E1%83%9B%E1%83%9D%E1%83%9B%E1%83%A1%E1%83%90%E1%83%AE%E1%83%A3%E1%83%A0%E1%83%94%E1%83%91%E1%83%90%3A%20" target="_blank" rel="noopener">
-            <svg class="ico" aria-hidden="true"><use href="#icon-wa"></use></svg>
-            WhatsApp
-          </a>
         </div>
 
+        <!-- მისამართის ტექსტი თავად არის რუკის ბმული, ცალკე ღილაკი ზედმეტი იყო -->
         <p class="hero-addr">
           <svg class="ico" aria-hidden="true"><use href="#icon-pin"></use></svg>
           <span><a href="https://www.google.com/maps/place/?cid=2737741856713212816" target="_blank" rel="noopener">ქალაქი თბილისი, ალექსანდრე ყაზბეგის გამზირი #6</a></span>
-          <a class="btn btn-ghost btn-sm" href="https://www.google.com/maps/place/?cid=2737741856713212816" target="_blank" rel="noopener">რუკაზე ნახვა</a>
         </p>
+
       </div>
 
       <!--
@@ -206,7 +213,6 @@
           <p class="pay-actions">
             <button type="button" class="btn btn-ghost btn-sm" data-pay-copy>კოპირება</button>
           </p>
-          <p class="pay-hint">ნომერი დააკოპირეთ და ბანკის აპლიკაციაში ჩასვით.</p>
         </div>
       </div>
     </div>
@@ -233,6 +239,8 @@
 <footer class="site-foot">
   <div class="wrap foot-inner">
     <p>ნოტარიუსი თინათინ რურუა &middot; ქალაქი თბილისი, ალექსანდრე ყაზბეგის გამზირი #6</p>
+    <!-- ნომერი და ელფოსტა ტექსტად: ჰეროში მხოლოდ ხატულებია -->
+    <p><a href="tel:+995591709931">591 70 99 31</a> &middot; <a href="mailto:tikarurua@gmail.com">tikarurua@gmail.com</a></p>
     <!-- საზღაურის გვერდი ფუტერშია: ჰედერიდან მოიხსნა, გვერდზე ცალკე ბლოკიც აღარაა -->
     <p><a class="btn btn-ghost btn-sm" href="tarifi/">საზღაური</a></p>
     <!-- ჩანაწერი ნოტარიუსთა პალატის სანოტარო ბიუროების ცნობარში -->
@@ -242,6 +250,14 @@
     </p>
   </div>
 </footer>
+
+<!--
+  WhatsApp მცურავი ღილაკი მარჯვნივ ქვემოთ, ჩატის ჩვეულ ადგილას. მესიჯს საიტის
+  მითითება თავიდანვე ერთვის, ასე მაშინვე ჩანს, საიდან მოვიდა.
+-->
+<a class="wa-float" href="https://wa.me/995591709931?text=%E1%83%92%E1%83%90%E1%83%9B%E1%83%90%E1%83%A0%E1%83%AF%E1%83%9D%E1%83%91%E1%83%90%21%20%E1%83%92%E1%83%AC%E1%83%94%E1%83%A0%E1%83%97%20%E1%83%A1%E1%83%90%E1%83%98%E1%83%A2%E1%83%98%E1%83%93%E1%83%90%E1%83%9C%20rurua.ge.%20%E1%83%9B%E1%83%90%E1%83%98%E1%83%9C%E1%83%A2%E1%83%94%E1%83%A0%E1%83%94%E1%83%A1%E1%83%94%E1%83%91%E1%83%A1%20%E1%83%A1%E1%83%90%E1%83%9C%E1%83%9D%E1%83%A2%E1%83%90%E1%83%A0%E1%83%9D%20%E1%83%9B%E1%83%9D%E1%83%9B%E1%83%A1%E1%83%90%E1%83%AE%E1%83%A3%E1%83%A0%E1%83%94%E1%83%91%E1%83%90%3A%20" target="_blank" rel="noopener" aria-label="WhatsApp-ზე მოწერა" title="WhatsApp">
+  <svg aria-hidden="true"><use href="#icon-wa"></use></svg>
+</a>
 
 <script src="assets/theme.js"></script>
 <script src="assets/pay.js"></script>

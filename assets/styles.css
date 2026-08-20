@@ -160,6 +160,13 @@ a:hover { text-decoration: underline; }
 .head-nav a { color: var(--muted); font-size: .95rem; }
 .head-nav a:hover { color: var(--text); text-decoration: none; }
 
+/*
+  ტელეფონისა და ელფოსტის ხატულები ნავიგაციაში. ჩარჩო არ აქვთ, რომ ბმულებად და არა
+  ღილაკებად წაიკითხებოდეს. სახელი aria-label-შია, თავად ნომერი და ელფოსტა ფუტერში.
+*/
+.head-nav .nav-icon { display: inline-flex; align-items: center; }
+.head-nav .nav-icon .ico { width: 20px; height: 20px; }
+
 .head-actions { display: flex; align-items: center; gap: 10px; }
 
 /* ენის გადამრთველი: მიმდინარე ენა span-ია, მეორე კი ბმული */
@@ -266,6 +273,7 @@ a:hover { text-decoration: underline; }
   color: var(--muted); font-size: .95rem;
 }
 .hero-addr .ico { color: var(--accent); }
+
 .hero-addr span { flex: 0 1 auto; }
 
 /*
@@ -544,11 +552,31 @@ a:hover { text-decoration: underline; }
 .foot-inner p { margin: 0; }
 .foot-reg { flex-basis: 100%; }
 
+/*
+  WhatsApp მცურავი ღილაკი. მარჯვნივ ქვემოთ ეკიდება, ანუ ჩატის ჩვეულ ადგილას, და
+  გვერდის გრაგნილს არ მიჰყვება. ბრენდის მწვანე ფონი, თეთრი ხატულა.
+*/
+.wa-float {
+  position: fixed; right: 20px; bottom: 20px; z-index: 20;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 54px; height: 54px; border-radius: 50%;
+  background: var(--wa); color: #fff;
+  box-shadow: var(--shadow);
+}
+.wa-float:hover { filter: brightness(1.06); }
+.wa-float svg { width: 27px; height: 27px; }
+
 /* ---------- მობილური ---------- */
 
 @media (max-width: 860px) {
   .hero-inner, .two-col, .contact-grid { grid-template-columns: 1fr; }
-  .head-nav { display: none; }
+
+  /*
+    ნავიგაცია აღარ იმალება, რადგან კონტაქტი მასშია. ვიწროდ ბრენდისა და ენის ქვემოთ,
+    მთელ სიგანეზე ეშვება.
+  */
+  .head-inner { flex-wrap: wrap; }
+  .head-nav { order: 3; flex-basis: 100%; flex-wrap: wrap; gap: 8px 16px; padding-bottom: 4px; }
 }
 
 /*
@@ -565,13 +593,6 @@ a:hover { text-decoration: underline; }
 
   .lang { font-size: .78rem; padding: 2px; }
   .lang > * { padding: 3px 7px; }
-
-  .head-actions .btn-cal .btn-label { display: none; }
-  .head-actions .btn-cal {
-    width: 38px; height: 38px; padding: 0;
-    justify-content: center;
-  }
-  .head-actions .btn-cal .ico { width: 19px; height: 19px; }
 
   /* გრძელი წარწერა ვიწრო ეკრანზე ეშლება, nowrap მხოლოდ ფართო ეკრანს სჭირდება */
   .btn { white-space: normal; }

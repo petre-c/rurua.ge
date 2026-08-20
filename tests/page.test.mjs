@@ -88,7 +88,7 @@ CATALOGUE.forEach((s) => s.needs.forEach((n) => catalogueNeeds.add(n)));
 [["index.html", "tarifi/"], ["en/index.html", "fees/"]].forEach(([page, href]) => {
   const html = read(page);
 
-  const head = html.slice(html.indexOf('class="head-actions"'), html.indexOf("</header>"));
+  const head = html.slice(html.indexOf("<header"), html.indexOf("</header>"));
   const heroAt = html.indexOf('id="hero"');
   const hero = html.slice(heroAt, html.indexOf("</section>", heroAt));
   const foot = html.slice(html.indexOf("<footer"), html.indexOf("</footer>"));
@@ -108,30 +108,37 @@ CATALOGUE.forEach((s) => s.needs.forEach((n) => catalogueNeeds.add(n)));
   check(`${page}: შეფასების ბმული`, html.includes("!12e1"), true);
 
   /*
-    ჰედერში მხოლოდ გადახდაზე გადასვლა რჩება, საზღაურის ბმული ფუტერშია. ორივე მხარეს
-    ვამოწმებთ, თორემ ბმულის გადატანა ჩუმად წაშლადაც შეიძლება გამოვიდეს: საზღაურის
-    გვერდზე მთავარი გვერდიდან სხვა გზა არ არის.
+    ჰედერი ნავიგაციაა და არა ღილაკების რიგი: მხოლოდ გადახდაზე გადასვლა რჩება,
+    კონტაქტი ჰეროშია ხატულებით, ტექსტი კი ფუტერში.
   */
-  check(`${page}: ჰედერში საზღაური აღარ არის`, head.includes(`href="${href}"`), false);
+  check(`${page}: ჰედერში ნავიგაციაა`, head.includes('class="head-nav"'), true);
   check(`${page}: ჰედერში ბმული გადახდაზე`, head.includes('href="#payment"'), true);
-  check(`${page}: ფუტერში ბმული საზღაურზე`, foot.includes(`href="${href}"`), true);
-  check(`${page}: ჰედერში ნავიგაცია აღარ არის`, html.includes('class="head-nav"'), false);
+  check(`${page}: ჰედერში ღილაკი არ არის`, head.includes('class="btn'), false);
+  check(`${page}: ჰედერში ტელეფონის ხატულა`, head.includes("#icon-phone"), true);
+  check(`${page}: ჰედერში ელფოსტის ხატულა`, head.includes("#icon-mail"), true);
+  check(`${page}: ხატულებს სახელი აქვს`, (head.match(/nav-icon[^>]*aria-label=/g) || []).length, 2);
+  check(`${page}: ჰედერში WhatsApp არ არის`, head.includes("wa.me"), false);
   check(`${page}: ჰედერში ჯავშნა აღარ არის`, head.includes("cal.com"), false);
+  check(`${page}: ჰედერში საზღაური აღარ არის`, head.includes(`href="${href}"`), false);
 
   /*
-    კონტაქტი მხოლოდ ჰეროშია: კონტაქტის სექციაც და ფუტერის ხაზიც სწორედ იმიტომ მოიხსნა,
-    რომ იმეორებდა. ანუ ჰეროდან რომელიმეს გაქრობა ინფორმაციის დაკარგვაა.
+    ჰეროში ჯავშანი მთავარია: ორი ღილაკი და მისამართი, სხვა ვერაფერი ეცილება
+    ყურადღებას. კონტაქტი ჰედერშია, WhatsApp მცურავ ღილაკზე.
   */
-  check(`${page}: ტელეფონი ჰეროშია`, hero.includes("tel:+995591709931"), true);
-  check(`${page}: ელფოსტა ჰეროშია`, hero.includes("mailto:tikarurua@gmail.com"), true);
-  check(`${page}: WhatsApp ჰეროშია`, hero.includes("wa.me/995591709931"), true);
-  check(`${page}: მისამართი ჰეროშია`, hero.includes("maps/place/?cid=2737741856713212816"), true);
   check(`${page}: ჯავშნა ჰეროშია`, hero.includes("cal.com/rurua/30"), true);
-  check(`${page}: გადახდის ღილაკი ჰეროში აღარ არის`, hero.includes('href="#payment"'), false);
+  check(`${page}: Teams ჰეროშია`, hero.includes("teams.live.com"), true);
+  check(`${page}: მისამართი ჰეროშია`, hero.includes("maps/place/?cid=2737741856713212816"), true);
+  check(`${page}: ჰეროში ორი ღილაკია`, (hero.match(/class="btn /g) || []).length, 2);
 
-  // ფუტერში კონტაქტი აღარ წერია, სახელი და მისამართი რჩება
-  check(`${page}: ფუტერში ელფოსტა აღარ არის`, foot.includes("mailto:"), false);
-  check(`${page}: ფუტერში ტელეფონი აღარ არის`, foot.includes("tel:"), false);
+  /*
+    WhatsApp მცურავი ღილაკია გვერდის ბოლოში და არა ნავიგაციაში. ფუტერში ნომერი და
+    ელფოსტა ტექსტად წერია: ჰეროში მხოლოდ ხატულებია, ანუ ტექსტს სხვა ადგილი არ აქვს.
+  */
+  check(`${page}: WhatsApp მცურავი ღილაკია`, html.includes('class="wa-float"'), true);
+  check(`${page}: მცურავი ღილაკი ფუტერის შემდეგაა`, html.indexOf("wa-float") > html.indexOf("</footer>"), true);
+  check(`${page}: WhatsApp ბმული ერთია`, (html.match(/wa\.me\/995591709931/g) || []).length, 1);
+  check(`${page}: ფუტერში ნომერი`, foot.includes("tel:+995591709931"), true);
+  check(`${page}: ფუტერში ელფოსტა`, foot.includes("mailto:tikarurua@gmail.com"), true);
   check(`${page}: ფუტერში მისამართი რჩება`, /ყაზბეგის|Kazbegi/.test(foot), true);
 });
 
@@ -174,6 +181,17 @@ CATALOGUE.forEach((s) => s.needs.forEach((n) => catalogueNeeds.add(n)));
   check(`${page}: ჰედერში ჯავშნა აღარ არის`, head.includes("cal.com"), false);
   check(`${page}: ჯავშნა გვერდზე რჩება`, html.includes('class="btn btn-primary btn-cal"'), true);
 });
+
+/*
+  მცურავი WhatsApp ღილაკი გრაგნილს არ უნდა მიჰყვეს და მარჯვნივ ქვემოთ უნდა იდგეს.
+  ეს მთლიანად CSS-ზეა, ამიტომ სტილსაც ვამოწმებთ და არა მხოლოდ მარკაპს.
+*/
+const css = read("assets/styles.css");
+const waRule = css.slice(css.indexOf(".wa-float {"), css.indexOf("}", css.indexOf(".wa-float {")));
+
+check("styles.css: მცურავი ღილაკი fixed-ია", /position:\s*fixed/.test(waRule), true);
+check("styles.css: მარჯვნივ ქვემოთ", /right:\s*\d/.test(waRule) && /bottom:\s*\d/.test(waRule), true);
+check("styles.css: ჰედერზე მაღლა", /z-index:\s*\d/.test(waRule), true);
 
 console.log(`checks passed: ${passed}`);
 

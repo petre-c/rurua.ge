@@ -98,6 +98,9 @@
   <symbol id="icon-pin" viewBox="0 0 24 24">
     <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.05 6.13 12.28 6.39 12.58a.8.8 0 0 0 1.22 0C12.87 21.28 19 14.05 19 9a7 7 0 0 0-7-7Zm0 2a5 5 0 0 1 5 5c0 3.3-3.4 8.28-5 10.28C10.4 17.28 7 12.3 7 9a5 5 0 0 1 5-5Zm0 2.5A2.5 2.5 0 1 0 12 11.5a2.5 2.5 0 0 0 0-5Z"/>
   </symbol>
+  <symbol id="icon-phone" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z"/>
+  </symbol>
   <symbol id="icon-mail" viewBox="0 0 24 24">
     <path fill="currentColor" d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1.6 2L12 12.3 19.4 7H4.6ZM4 8.9V17h16V8.9l-8 5.7-8-5.7Z"/>
   </symbol>
@@ -115,9 +118,22 @@
       </span>
     </a>
 
+    <!--
+      The header is navigation, not a row of buttons: phone and email as bare icons
+      in the link colour, plus a text link to payment. The number and email are
+      written out in the footer, and the hero keeps only booking and the meeting.
+    -->
+    <nav class="head-nav">
+      <a class="nav-icon" href="tel:+995591709931" aria-label="Call 591 70 99 31" title="591 70 99 31">
+        <svg class="ico" aria-hidden="true"><use href="#icon-phone"></use></svg>
+      </a>
+      <a class="nav-icon" href="mailto:tikarurua@gmail.com?subject=Enquiry%20from%20rurua.ge" aria-label="Email: tikarurua@gmail.com" title="tikarurua@gmail.com">
+        <svg class="ico" aria-hidden="true"><use href="#icon-mail"></use></svg>
+      </a>
+      <a href="#payment">Payment</a>
+    </nav>
+
     <div class="head-actions">
-      <!-- In-page jump to payment, next to the language switch -->
-      <a class="btn btn-ghost btn-sm" href="#payment">Payment</a>
       <!-- Language switch, each version is its own page -->
       <p class="lang" aria-label="Language">
         <a href="../" lang="ka">ქარ</a>
@@ -148,24 +164,15 @@
             <svg class="ico" aria-hidden="true"><use href="#icon-video"></use></svg>
             Meet on Teams
           </a>
-          <a class="btn btn-ghost" href="tel:+995591709931">591 70 99 31</a>
-          <!-- Email with the subject prefilled, so an enquiry is recognisable on arrival -->
-          <a class="btn btn-ghost btn-mail" href="mailto:tikarurua@gmail.com?subject=Enquiry%20from%20rurua.ge">
-            <svg class="ico" aria-hidden="true"><use href="#icon-mail"></use></svg>
-            tikarurua@gmail.com
-          </a>
-          <a class="btn btn-wa" href="https://wa.me/995591709931?text=Hello%21%20I%20am%20writing%20from%20your%20website%20rurua.ge.%20I%20would%20like%20to%20ask%20about%20a%20notary%20service%3A%20" target="_blank" rel="noopener">
-            <svg class="ico" aria-hidden="true"><use href="#icon-wa"></use></svg>
-            WhatsApp
-          </a>
         </div>
 
 
+        <!-- The address text is the map link itself, a separate button repeated it -->
         <p class="hero-addr">
           <svg class="ico" aria-hidden="true"><use href="#icon-pin"></use></svg>
           <span><a href="https://www.google.com/maps/place/?cid=2737741856713212816" target="_blank" rel="noopener">6 Aleksandre Kazbegi Avenue, Tbilisi</a></span>
-          <a class="btn btn-ghost btn-sm" href="https://www.google.com/maps/place/?cid=2737741856713212816" target="_blank" rel="noopener">Open in maps</a>
         </p>
+
       </div>
 
       <figure class="portrait">
@@ -199,7 +206,6 @@
           <p class="pay-actions">
             <button type="button" class="btn btn-ghost btn-sm" data-pay-copy>Copy</button>
           </p>
-          <p class="pay-hint">Copy the number and paste it into your banking app.</p>
         </div>
       </div>
     </div>
@@ -226,6 +232,8 @@
 <footer class="site-foot">
   <div class="wrap foot-inner">
     <p>Notary Tinatin Rurua &middot; 6 Aleksandre Kazbegi Avenue, Tbilisi</p>
+    <!-- The number and email in full: the hero only carries icons -->
+    <p><a href="tel:+995591709931">591 70 99 31</a> &middot; <a href="mailto:tikarurua@gmail.com">tikarurua@gmail.com</a></p>
     <!-- The fee page link lives in the footer: gone from the header, and it has no block of its own -->
     <p><a class="btn btn-ghost btn-sm" href="fees/">Fees</a></p>
     <!-- Entry in the notary chamber's directory of notary offices -->
@@ -235,6 +243,14 @@
     </p>
   </div>
 </footer>
+
+<!--
+  Floating WhatsApp button, bottom right, where chat buttons usually sit. The message
+  comes prefilled with the site name, so it is clear where the enquiry came from.
+-->
+<a class="wa-float" href="https://wa.me/995591709931?text=Hello%21%20I%20am%20writing%20from%20your%20website%20rurua.ge.%20I%20would%20like%20to%20ask%20about%20a%20notary%20service%3A%20" target="_blank" rel="noopener" aria-label="Message on WhatsApp" title="WhatsApp">
+  <svg aria-hidden="true"><use href="#icon-wa"></use></svg>
+</a>
 
 <script src="../assets/theme.js"></script>
 <script src="../assets/pay.js"></script>
