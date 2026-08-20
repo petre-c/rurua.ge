@@ -107,9 +107,14 @@ CATALOGUE.forEach((s) => s.needs.forEach((n) => catalogueNeeds.add(n)));
   check(`${page}: შეფასების სექცია არსებობს`, html.includes('id="review"'), true);
   check(`${page}: შეფასების ბმული`, html.includes("!12e1"), true);
 
-  // ჰედერში ორი პატარა ღილაკი: საზღაურის გვერდი და გადახდაზე გადასვლა
-  check(`${page}: ჰედერში ბმული საზღაურზე`, head.includes(`href="${href}"`), true);
+  /*
+    ჰედერში მხოლოდ გადახდაზე გადასვლა რჩება, საზღაურის ბმული ფუტერშია. ორივე მხარეს
+    ვამოწმებთ, თორემ ბმულის გადატანა ჩუმად წაშლადაც შეიძლება გამოვიდეს: საზღაურის
+    გვერდზე მთავარი გვერდიდან სხვა გზა არ არის.
+  */
+  check(`${page}: ჰედერში საზღაური აღარ არის`, head.includes(`href="${href}"`), false);
   check(`${page}: ჰედერში ბმული გადახდაზე`, head.includes('href="#payment"'), true);
+  check(`${page}: ფუტერში ბმული საზღაურზე`, foot.includes(`href="${href}"`), true);
   check(`${page}: ჰედერში ნავიგაცია აღარ არის`, html.includes('class="head-nav"'), false);
   check(`${page}: ჰედერში ჯავშნა აღარ არის`, head.includes("cal.com"), false);
 
