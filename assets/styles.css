@@ -336,6 +336,8 @@ a:hover { text-decoration: underline; }
 
 @media (prefers-reduced-motion: reduce) {
   .cta-calc-arrow { transition: none; }
+  .btn-review { transition: none; }
+  .btn-review:hover { transform: none; }
 }
 
 /* ---------- სექციები ---------- */
@@ -346,8 +348,29 @@ a:hover { text-decoration: underline; }
 .section-title { font-size: clamp(1.5rem, 3vw, 2rem); }
 .section-sub { color: var(--muted); margin-bottom: 32px; }
 
-/* Google-ის შეფასების ერთხაზიანი შენიშვნა: სათაურის გარეშე დგას */
-.review-note { color: var(--muted); margin: 0; }
+/*
+  შეფასების ღილაკი. ხუთი ოქროსფერი ვარსკვლავი წარწერის წინ დგას, ღილაკი კი ვარსკვლავის
+  ფერიდან აღებული ჩარჩოთი და ფონით გამოირჩევა. კურსორის ქვეშ ოდნავ ზევით იწევს.
+  color-mix გამჭვირვალობას იღებს, ანუ ერთი წესი ორივე თემას ჯდება.
+*/
+.btn-review {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 14px 24px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--star) 40%, transparent);
+  background: color-mix(in srgb, var(--star) 9%, transparent);
+  color: var(--text); font-weight: 500;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.btn-review:hover {
+  text-decoration: none;
+  background: color-mix(in srgb, var(--star) 16%, transparent);
+  border-color: var(--star);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+.review-stars { display: inline-flex; gap: 3px; color: var(--star); }
+.review-stars .ico { width: 17px; height: 17px; }
 
 .grid {
   list-style: none; margin: 0; padding: 0;

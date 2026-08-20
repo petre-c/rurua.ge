@@ -85,8 +85,9 @@ CATALOGUE.forEach((s) => s.needs.forEach((n) => catalogueNeeds.add(n)));
   მოიხსნა. არარსებულ ატრიბუტზე indexOf -1-ს აბრუნებს, ანუ პოზიციის შედარება ჩუმად
   გადის. ამიტომ აქ არსებობა ცალკე შემოწმდება და არა მხოლოდ რიგი.
 */
-[["index.html", "tarifi/", "საბანკო რეკვიზიტები"],
- ["en/index.html", "fees/", "Bank details"]].forEach(([page, href, payTitle]) => {
+[["index.html", "tarifi/", "საბანკო რეკვიზიტები", "შეფასება Google-ზე"],
+ ["en/index.html", "fees/", "Bank details", "Review on Google"]]
+  .forEach(([page, href, payTitle, reviewTitle]) => {
   const html = read(page);
 
   const head = html.slice(html.indexOf("<header"), html.indexOf("</header>"));
@@ -107,7 +108,12 @@ CATALOGUE.forEach((s) => s.needs.forEach((n) => catalogueNeeds.add(n)));
   check(`${page}: საბანკო რეკვიზიტების სექცია არსებობს`, html.includes('id="payment"'), true);
   check(`${page}: სექციის სათაური`, html.includes(`<h2 class="section-title">${payTitle}</h2>`), true);
   check(`${page}: შეფასების სექცია არსებობს`, html.includes('id="review"'), true);
+  check(`${page}: შეფასების სათაური`, html.includes(`<h2 class="section-title">${reviewTitle}</h2>`), true);
+  check(`${page}: შეფასების ღილაკი`, html.includes('class="btn-review"'), true);
   check(`${page}: შეფასების ბმული`, html.includes("!12e1"), true);
+
+  // ხუთი ვარსკვლავი: ოთხი ან ექვსი შეცდომა იქნებოდა, ეს შეფასების ჩვეული ნიშანია
+  check(`${page}: ხუთი ვარსკვლავი`, (html.match(/#icon-star/g) || []).length, 5);
 
   /*
     ჰედერი ნავიგაციაა და არა ღილაკების რიგი: მხოლოდ გადახდაზე გადასვლა რჩება,
