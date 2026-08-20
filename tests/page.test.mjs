@@ -106,6 +106,14 @@ CATALOGUE.forEach((s) => s.needs.forEach((n) => catalogueNeeds.add(n)));
 
   check(`${page}: საზღაურის ბლოკი აღარ არის`, html.includes("cta-calc"), false);
   check(`${page}: საბანკო რეკვიზიტების სექცია არსებობს`, html.includes('id="payment"'), true);
+
+  /*
+    ბანკის ნიშნები ბარათებზე. ორი ბარათია, ორი ნიშანი, და ორივე aria-hidden უნდა იყოს:
+    ბანკის სახელი გვერდით წერია და სკრინრიდერს ორჯერ არ სჭირდება.
+  */
+  check(`${page}: ორი ბანკის ნიშანი`, (html.match(/class="bank-mark"/g) || []).length, 2);
+  check(`${page}: TBC-ის ნიშანი`, html.includes('class="bank-mark" aria-hidden="true">TBC<'), true);
+  check(`${page}: BOG-ის ნიშანი`, html.includes('class="bank-mark" aria-hidden="true">BOG<'), true);
   check(`${page}: სექციის სათაური`, html.includes(`<h2 class="section-title">${payTitle}</h2>`), true);
   check(`${page}: შეფასების სექცია არსებობს`, html.includes('id="review"'), true);
   check(`${page}: შეფასების სათაური`, html.includes(`<h2 class="section-title">${reviewTitle}</h2>`), true);

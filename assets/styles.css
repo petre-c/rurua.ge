@@ -439,7 +439,24 @@ a:hover { text-decoration: underline; }
 }
 .pay-grid > * { min-width: 0; }
 
-.pay-card h3 { color: var(--muted); font-family: var(--sans); font-weight: 500; font-size: .9rem; }
+.pay-card h3 {
+  display: flex; align-items: center; gap: 10px;
+  color: var(--muted); font-family: var(--sans); font-weight: 500; font-size: .9rem;
+}
+
+/*
+  ბანკის ნიშანი ანგარიშის ბარათზე. ეს ბანკის ლოგო არ არის, არამედ ინიციალები საიტის
+  პალიტრაში: ოფიციალურ ლოგოს მეხსიერებით ვერ დავხატავ და სავაჭრო ნიშანიც სხვისია.
+  aria-hidden, რადგან ბანკის სახელი გვერდით წერია და ორჯერ წაკითხვას აზრი არ აქვს.
+*/
+.bank-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 46px; padding: 4px 8px;
+  border: 1px solid var(--border); border-radius: 8px;
+  background: var(--bg);
+  color: var(--accent);
+  font-size: .72rem; font-weight: 600; letter-spacing: .05em;
+}
 
 /* ანგარიშის ნომერი: მონოსფეისი და თანაბარი ციფრები, რომ წაკითხვა და შედარება გაადვილდეს */
 .pay-iban {
