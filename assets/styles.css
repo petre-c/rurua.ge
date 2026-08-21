@@ -445,17 +445,17 @@ a:hover { text-decoration: underline; }
 }
 
 /*
-  ბანკის ნიშანი ანგარიშის ბარათზე. ეს ბანკის ლოგო არ არის, არამედ ინიციალები საიტის
-  პალიტრაში: ოფიციალურ ლოგოს მეხსიერებით ვერ დავხატავ და სავაჭრო ნიშანიც სხვისია.
-  aria-hidden, რადგან ბანკის სახელი გვერდით წერია და ორჯერ წაკითხვას აზრი არ აქვს.
+  ბანკის ლოგო ანგარიშის ბარათზე. ორივე ლოგო თეთრ ფონზეა დახატული, ამიტომ თეთრ
+  ფირფიტაზე ჯდება: ასე ბრენდის ფერები ორივე თემაზე სწორად ჩანს და ორი სხვადასხვა
+  წყაროდან მოსული ფაილი ერთნაირად გამოიყურება. object-fit ფორმას არ ჭიმავს.
 */
-.bank-mark {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-width: 46px; padding: 4px 8px;
-  border: 1px solid var(--border); border-radius: 8px;
-  background: var(--bg);
-  color: var(--accent);
-  font-size: .72rem; font-weight: 600; letter-spacing: .05em;
+.bank-logo {
+  width: 34px; height: 34px;
+  flex: 0 0 auto;
+  padding: 6px; box-sizing: border-box;
+  border-radius: 8px;
+  background: #fff;
+  object-fit: contain;
 }
 
 /* ანგარიშის ნომერი: მონოსფეისი და თანაბარი ციფრები, რომ წაკითხვა და შედარება გაადვილდეს */
