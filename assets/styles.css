@@ -439,7 +439,24 @@ a:hover { text-decoration: underline; }
 }
 .pay-grid > * { min-width: 0; }
 
-.pay-card h3 { color: var(--muted); font-family: var(--sans); font-weight: 500; font-size: .9rem; }
+.pay-card h3 {
+  display: flex; align-items: center; gap: 10px;
+  color: var(--muted); font-family: var(--sans); font-weight: 500; font-size: .9rem;
+}
+
+/*
+  ბანკის ლოგო ანგარიშის ბარათზე. ორივე ლოგო თეთრ ფონზეა დახატული, ამიტომ თეთრ
+  ფირფიტაზე ჯდება: ასე ბრენდის ფერები ორივე თემაზე სწორად ჩანს და ორი სხვადასხვა
+  წყაროდან მოსული ფაილი ერთნაირად გამოიყურება. object-fit ფორმას არ ჭიმავს.
+*/
+.bank-logo {
+  width: 34px; height: 34px;
+  flex: 0 0 auto;
+  padding: 6px; box-sizing: border-box;
+  border-radius: 8px;
+  background: #fff;
+  object-fit: contain;
+}
 
 /* ანგარიშის ნომერი: მონოსფეისი და თანაბარი ციფრები, რომ წაკითხვა და შედარება გაადვილდეს */
 .pay-iban {

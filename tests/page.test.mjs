@@ -106,6 +106,15 @@ CATALOGUE.forEach((s) => s.needs.forEach((n) => catalogueNeeds.add(n)));
 
   check(`${page}: საზღაურის ბლოკი აღარ არის`, html.includes("cta-calc"), false);
   check(`${page}: საბანკო რეკვიზიტების სექცია არსებობს`, html.includes('id="payment"'), true);
+
+  /*
+    ბანკების ლოგოები ბარათებზე. ორი ბარათია, ორი ლოგო. alt ცარიელია, რადგან ბანკის
+    სახელი გვერდით ტექსტად წერია და სკრინრიდერს ორჯერ არ სჭირდება.
+  */
+  check(`${page}: ორი ბანკის ლოგო`, (html.match(/class="bank-logo"/g) || []).length, 2);
+  check(`${page}: TBC-ის ლოგო`, html.includes("assets/bank-tbc.png"), true);
+  check(`${page}: BOG-ის ლოგო`, html.includes("assets/bank-bog.svg"), true);
+  check(`${page}: ლოგოებს ცარიელი alt აქვს`, (html.match(/class="bank-logo"[^>]*alt=""/g) || []).length, 2);
   check(`${page}: სექციის სათაური`, html.includes(`<h2 class="section-title">${payTitle}</h2>`), true);
   check(`${page}: შეფასების სექცია არსებობს`, html.includes('id="review"'), true);
   check(`${page}: შეფასების სათაური`, html.includes(`<h2 class="section-title">${reviewTitle}</h2>`), true);
