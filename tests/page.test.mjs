@@ -202,6 +202,19 @@ check("styles.css: მცურავი ღილაკი fixed-ია", /posi
 check("styles.css: მარჯვნივ ქვემოთ", /right:\s*\d/.test(waRule) && /bottom:\s*\d/.test(waRule), true);
 check("styles.css: ჰედერზე მაღლა", /z-index:\s*\d/.test(waRule), true);
 
+/*
+  მისამართის ჩაწერა ერთნაირი უნდა იყოს ყველგან: „თბილისი" და არა „ქალაქი თბილისი",
+  ნომერი კი სიმბოლოს გარეშე. # ინგლისურენოვანი ჩვევაა, № კი დადგენილების ციტირებას
+  რჩება. მისამართი ხუთ ადგილას წერია, ამიტომ ერთ გვერდზე შესწორება ცოტაა.
+*/
+["index.html", "tarifi/index.html", "README.md"].forEach((page) => {
+  const text = read(page);
+
+  check(`${page}: „ქალაქი" აღარ წერია`, text.includes("ქალაქი "), false);
+  check(`${page}: ნომერი # სიმბოლოს გარეშეა`, text.includes("გამზირი #"), false);
+  check(`${page}: მისამართი ადგილზეა`, text.includes("ალექსანდრე ყაზბეგის გამზირი 6"), true);
+});
+
 console.log(`checks passed: ${passed}`);
 
 if (failures.length) {
